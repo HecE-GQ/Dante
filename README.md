@@ -36,37 +36,6 @@ La carpeta webfonts/ contiene las fuentes locales de Font Awesome.
 fontawesome-all.min.css apunta a ella con rutas relativas del tipo src: url('../webfonts/...').
 No borrar — si se elimina, todos los iconos del sitio dejan de funcionar.
 
-Estructura de archivos
-/Dante
-│
-├── cursoPrueba.html        ← página de curso individual (con modal)
-├── cursos.html
-├── index.html
-├── preguntasFrec.html
-├── quienesSomos.html
-│
-├── assets/
-│   ├── css/
-│   │   ├── variables.css            ← SIEMPRE se carga primero
-│   │   ├── main.css                 ← base estructural del template
-│   │   ├── navbar.css               ← header y barra de navegación
-│   │   ├── footer.css               ← pie de página
-│   │   ├── modal.css                ← modal de requisitos (solo en cursos)
-│   │   └── fontawesome-all.min.css  ← iconos (no modificar)
-│   │
-│   ├── images/
-│   │   ├── FondoDgtic.jpeg          ← imagen de fondo / banner
-│   │   └── logo_DGTIC_color.png     ← logo institucional
-│   │
-│   ├── js/
-│   │   ├── jquery.min.js   ← dependencia base (no modificar)
-│   │   ├── app.js          ← toda la lógica propia del sitio
-│   │   ├── main.js         ← ⚠️ legacy del template, pendiente eliminar
-│   │   └── util.js         ← ⚠️ legacy del template, pendiente eliminar
-│   │
-│   └── webfonts/           ← fuentes de Font Awesome (no eliminar)
-│
-└── README.md
 
 Orden de carga de CSS en cada HTML
 html<head>
