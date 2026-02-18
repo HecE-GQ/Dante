@@ -1,0 +1,235 @@
+/*
+  ================================================
+  DGTIC - UNAM
+  navbar.css
+
+  Estilos del header institucional y barra de
+  navegación principal.
+  Depende de: variables.css
+  ================================================
+*/
+
+/* ------------------------------------------
+   HEADER WRAPPER
+   ------------------------------------------ */
+
+#site-header {
+  width: 100%;
+  background: var(--color-bg-white);
+}
+
+/* ------------------------------------------
+   FRANJA DECORATIVA TOP
+   ------------------------------------------ */
+
+.header-franja-top {
+  width: 100%;
+  height: var(--header-franja-h);
+  background-color: var(--color-secondary);
+}
+
+/* ------------------------------------------
+   ZONA LOGO + TEXTO
+   ------------------------------------------ */
+
+.header-main {
+  background-color: var(--color-bg-white);
+  padding: var(--spacing-md) 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+.header-logo img {
+  height: 80px;
+  width: auto;
+  display: block;
+}
+
+.header-text {
+  text-align: left;
+  line-height: 1.5;
+}
+
+.header-text p {
+  margin: 0;
+  font-size: 1em;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+}
+
+
+
+/* ------------------------------------------
+   NAVBAR
+   ------------------------------------------ */
+
+#nav {
+  background-color: var(--color-primary);
+  padding: 0;
+  width: 100%;
+  z-index: var(--z-nav);
+}
+
+#nav:after { display: none; }
+
+#nav .container {
+  display: flex;
+  justify-content: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+#nav > div > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#nav > div > ul > li {
+  margin: 0;
+  position: relative;
+}
+
+#nav > div > ul > li > a {
+  color: var(--color-text-white);
+  display: block;
+  padding: var(--spacing-md) 18px;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 0;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+/* Hover — píldora amarilla */
+#nav > div > ul > li > a:hover {
+  color: var(--color-primary);
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+}
+
+/* Estado current — sin línea, sin fondo persistente */
+#nav > div > ul > li.current > a {
+  color: var(--color-text-white);
+  border-bottom: none;
+}
+
+/* ------------------------------------------
+   SUBMENÚ CSS PURO
+   ------------------------------------------ */
+
+
+
+#nav > div > ul > li:hover > ul {
+  display: block;
+}
+
+#nav > div > ul > li > ul > li > a {
+  display: block;
+  padding: 12px 18px;
+  color: var(--color-text-light);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  border: 0;
+  text-decoration: none;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+#nav > div > ul > li > ul > li > a:hover {
+  color: var(--color-accent);
+  background: rgba(255,255,255,0.06);
+}
+
+#banner { background-image: url("../images/FondoDgtic.jpegFachada_principal_de_la_DGTIC.jpg"); 
+background-position: center center; background-repeat: no-repeat; /* Opciones — descomenta la que mejor se vea: */ 
+background-size: cover; /* cubre todo el banner, puede recortar los bordes */ /* background-size: contain; */ /* muestra la imagen completa, puede dejar espacios */ /* background-size: 100% 100%; */ /* estira para llenar exacto, puede deformar */ /* background-size: 100% auto; */ /* ancho completo, alto proporcional */ 
+} 
+/* ------------------------------------------
+   STICKY NAV
+   ------------------------------------------ */
+
+#nav.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#page-wrapper.nav-sticky {
+  padding-top: var(--nav-height);
+}
+
+/* ------------------------------------------
+   NAV MÓVIL
+   ------------------------------------------ */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text-white);
+  transition: all var(--transition-normal);
+}
+
+@media screen and (max-width: 840px) {
+  .nav-toggle { display: flex; }
+
+  #nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  #nav > div > ul {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+  }
+
+  #nav > div > ul.open {
+    display: flex;
+  }
+
+  #nav > div > ul > li > a {
+    padding: 12px 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-radius: 0;
+  }
+
+  #nav > div > ul > li > ul {
+    position: static;
+    box-shadow: none;
+    background: rgba(0,0,0,0.2);
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0 1em;
+  }
+
+  .header-text { text-align: left; }
+}

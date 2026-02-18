@@ -1,0 +1,176 @@
+/*
+  ================================================
+  DGTIC - UNAM
+  footer.css
+  Depende de: variables.css
+  ================================================
+*/
+
+#footer {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  padding: 0;
+}
+
+/* ------------------------------------------
+   ZONA PRINCIPAL
+   ------------------------------------------ */
+
+.footer-main {
+  padding: 3em 0 2em 0;
+}
+
+.footer-inner {
+  display: flex;
+  gap: 3em;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+/* ------------------------------------------
+   COLUMNAS
+   ------------------------------------------ */
+
+.footer-col {
+  flex: 1;
+}
+
+.footer-social-col {
+  flex: 0.5;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ------------------------------------------
+   LOGO
+   ------------------------------------------ */
+
+.footer-logo img {
+  height: 70px;
+  width: auto;
+  margin-bottom: 1.5em;
+  /* Filtro para que el logo se vea blanco sobre azul */
+  filter: brightness(0) invert(1);
+}
+
+/* ------------------------------------------
+   LINKS LEGALES
+   ------------------------------------------ */
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.6em;
+  padding: 0;
+}
+
+.footer-links li a {
+  color: var(--color-text-white);
+  font-size: 0.82em;
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  border: none;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-links li a:hover {
+  opacity: 0.75;
+  color: var(--color-text-white);
+}
+
+/* ------------------------------------------
+   UBICACIÓN
+   ------------------------------------------ */
+
+.footer-label {
+  font-weight: var(--font-weight-bold);
+  font-size: 0.85em;
+  margin-bottom: 0.75em;
+  color: var(--color-text-white);
+}
+
+.footer-address {
+  font-size: 0.82em;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+}
+
+/* ------------------------------------------
+   REDES SOCIALES
+   ------------------------------------------ */
+
+.footer-social {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.75em;
+}
+
+.footer-social li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-circle);
+  background: rgba(255,255,255,0.15);
+  color: var(--color-text-white);
+  font-size: 1em;
+  border: none;
+  transition: background var(--transition-fast);
+}
+
+.footer-social li a:hover {
+  background: rgba(255,255,255,0.3);
+  color: var(--color-text-white);
+}
+
+/* ------------------------------------------
+   COPYRIGHT
+   ------------------------------------------ */
+
+.footer-bottom {
+  background: rgba(0,0,0,0.2);
+  padding: 1.2em 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.72em;
+  color: rgba(255,255,255,0.8);
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------
+   RESPONSIVE
+   ------------------------------------------ */
+
+@media screen and (max-width: 840px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .footer-social-col {
+    justify-content: flex-start;
+  }
+
+  .footer-social {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-bottom p {
+    font-size: 0.65em;
+    padding: 0 1em;
+  }
+}

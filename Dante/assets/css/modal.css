@@ -1,0 +1,95 @@
+/*
+  ================================================
+  DGTIC - UNAM
+  modal.css
+
+  Estilos del modal de requisitos de inscripción.
+  Se muestra automáticamente al entrar a la
+  página de un curso específico.
+  Depende de: variables.css
+  ================================================
+*/
+
+/* ------------------------------------------
+   OVERLAY
+   ------------------------------------------ */
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: var(--z-modal);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.activo {
+  display: flex;
+}
+
+/* ------------------------------------------
+   CAJA DEL MODAL
+   ------------------------------------------ */
+
+.modal-box {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  width: 340px;
+  max-width: 90%;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ------------------------------------------
+   CONTENIDO
+   ------------------------------------------ */
+
+.modal-box h3 {
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-body);
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+.modal-box ol {
+  padding-left: var(--spacing-md);
+  color: var(--color-text-body);
+  font-size: 11px;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+.modal-box ol li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ------------------------------------------
+   BOTÓN CERRAR
+   ------------------------------------------ */
+
+.btn-cerrar {
+  display: block;
+  width: 100%;
+  background: var(--color-primary);
+  color: var(--color-text-white);
+  border: none;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
+  transition: background var(--transition-fast);
+}
+
+.btn-cerrar:hover {
+  background: var(--color-secondary);
+} 
