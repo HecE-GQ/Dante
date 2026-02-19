@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="assets/css/navbar.css">
 	<link rel="stylesheet" href="assets/css/variables.css">
 	<link rel="stylesheet" href="assets/css/footer.css">
-	<link rel="stylesheet" href="assets/css/cursos.css">
+	<link rel="stylesheet" href="assets/css/cursos_tabla.css">
 </head>
 
 <body class="is-preload">
@@ -61,63 +61,63 @@
   <section class="cursos-section">
 
     <div class="cursos-intro">
-      <h1>La asignación de cursos se realizará de acuerdo al grupo y subgrupo función en combinación con el resultado del cuestionario de conocimientos previos.</h1>
+      <p>La asignación de cursos se realizará de acuerdo al grupo y subgrupo función en combinación con el resultado del cuestionario de conocimientos previos.</p>
       <h2>Cursos</h2>
     </div>
 
-    <div class="cursos-grid">
+    <div class="cursos-table-wrapper">
+      <table class="cursos-table">
+        <thead>
+          <tr>
+            <th>Curso</th>
+            <th>Modalidad</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
 
-      <!-- Tarjeta 1 — con imagen -->
-      <a href="cursoPrueba.html" class="curso-card">
-        <img
-          class="curso-card-img"
-          src="assets/images/cursos/curso1.jpg"
-          alt="Nombre del curso"
-        />
-        <div class="curso-card-body">
-          <h3 class="curso-card-nombre">Nombre del curso</h3>
-          <p class="curso-card-modalidad">En línea</p>
-        </div>
-      </a>
+          <tr onclick="window.location='cursoPrueba.html'">
+            <td class="col-nombre">Introducción a la programación</td>
+            <td><span class="badge-modalidad badge-en-linea">En línea</span></td>
+            <td class="col-accion"><a href="cursoPrueba.html" class="btn-ver">Ver</a></td>
+          </tr>
 
-      <!-- Tarjeta 2 — con imagen -->
-      <a href="cursoPrueba.html" class="curso-card">
-        <img
-          class="curso-card-img"
-          src="assets/images/cursos/curso2.jpg"
-          alt="Nombre del curso"
-        />
-        <div class="curso-card-body">
-          <h3 class="curso-card-nombre">Nombre del curso</h3>
-          <p class="curso-card-modalidad">Presencial</p>
-        </div>
-      </a>
+          <tr onclick="window.location='cursoPrueba.html'">
+            <td class="col-nombre">Bases de datos relacionales</td>
+            <td><span class="badge-modalidad badge-presencial">Presencial</span></td>
+            <td class="col-accion"><a href="cursoPrueba.html" class="btn-ver">Ver</a></td>
+          </tr>
 
-      <!-- Tarjeta 3 — placeholder sin imagen -->
-      <a href="cursoPrueba.html" class="curso-card">
-        <div class="curso-card-img-placeholder">
-          <span class="icon solid fa-laptop-code"></span>
-        </div>
-        <div class="curso-card-body">
-          <h3 class="curso-card-nombre">Nombre del curso</h3>
-          <p class="curso-card-modalidad">Híbrido</p>
-        </div>
-      </a>
+          <tr onclick="window.location='cursoPrueba.html'">
+            <td class="col-nombre">Desarrollo web con HTML y CSS</td>
+            <td><span class="badge-modalidad badge-hibrido">Híbrido</span></td>
+            <td class="col-accion"><a href="cursoPrueba.html" class="btn-ver">Ver</a></td>
+          </tr>
 
-      <!-- Tarjeta 4 — placeholder sin imagen -->
-      <a href="cursoPrueba.html" class="curso-card">
-        <div class="curso-card-img-placeholder">
-          <span class="icon solid fa-laptop-code"></span>
-        </div>
-        <div class="curso-card-body">
-          <h3 class="curso-card-nombre">Nombre del curso</h3>
-          <p class="curso-card-modalidad">En línea</p>
-        </div>
-      </a>
+          <tr onclick="window.location='cursoPrueba.html'">
+            <td class="col-nombre">Seguridad informática básica</td>
+            <td><span class="badge-modalidad badge-en-linea">En línea</span></td>
+            <td class="col-accion"><a href="cursoPrueba.html" class="btn-ver">Ver</a></td>
+          </tr>
 
+          <tr onclick="window.location='cursoPrueba.html'">
+            <td class="col-nombre">Redes y telecomunicaciones</td>
+            <td><span class="badge-modalidad badge-presencial">Presencial</span></td>
+            <td class="col-accion"><a href="cursoPrueba.html" class="btn-ver">Ver</a></td>
+          </tr>
+
+          <tr onclick="window.location='cursoPrueba.html'">
+            <td class="col-nombre">Administración de sistemas Linux</td>
+            <td><span class="badge-modalidad badge-hibrido">Híbrido</span></td>
+            <td class="col-accion"><a href="cursoPrueba.html" class="btn-ver">Ver</a></td>
+          </tr>
+
+        </tbody>
+      </table>
     </div>
 
-  </section>
+  </section> 
+
 
 
 

@@ -1,0 +1,179 @@
+/* ------------------------------------------
+   SECCIÓN WRAPPER
+   ------------------------------------------ */
+
+.cursos-section {
+  padding: 3em 0 4em 0;
+  background: #f4f7fb;
+}
+
+.cursos-intro {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 2.5em auto;
+  padding: 0 1em;
+}
+
+.cursos-intro h1 {
+  font-size: 1em;
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 0.5em;
+  letter-spacing: 0.01em;
+}
+
+.cursos-intro h2 {
+  font-size: 2em;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.cursos-intro h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--color-accent);
+  margin: 0.4em auto 0 auto;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------
+   GRID DE TARJETAS
+   ------------------------------------------ */
+
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75em;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+/* ------------------------------------------
+   TARJETA
+   ------------------------------------------ */
+
+.curso-card {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 65, 121, 0.08);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  text-decoration: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.curso-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 65, 121, 0.15);
+  border: none;
+  color: inherit;
+}
+
+/* ------------------------------------------
+   IMAGEN
+   ------------------------------------------ */
+
+.curso-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+/* Placeholder si no hay imagen */
+.curso-card-img-placeholder {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.curso-card-img-placeholder .icon {
+  font-size: 2.5em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ------------------------------------------
+   CONTENIDO
+   ------------------------------------------ */
+
+.curso-card-body {
+  padding: 1.25em 1.5em 1.5em 1.5em;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.curso-card-nombre {
+  font-size: 1em;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: 0.4em;
+  line-height: 1.4;
+}
+
+.curso-card-modalidad {
+  font-size: 0.8em;
+  color: var(--color-text-muted);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.curso-card-modalidad::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------
+   ESTADO VACÍO
+   ------------------------------------------ */
+
+.cursos-empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 3em 0;
+  font-size: 0.95em;
+}
+
+/* ------------------------------------------
+   RESPONSIVE
+   ------------------------------------------ */
+
+@media screen and (max-width: 840px) {
+  .cursos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cursos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .curso-card-img,
+  .curso-card-img-placeholder {
+    height: 160px;
+  }
+} 
+
