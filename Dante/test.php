@@ -6,7 +6,7 @@ $controller = new CursoController();
 
 $cursos = $controller->index();
 
-$cursos = $controller->cursoDetalle(1);
+$detalle = $controller->getById(1);
 
 header('Content-Type: application/json');
 echo json_encode([

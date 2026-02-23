@@ -13,20 +13,28 @@ class Curso {
     //Obtener todos los cursos activos 
 
     public function getAll(): array{
-        $stmt = $this->db->query(
+       try{
+         $stmt = $this->db->query(
             "SELECT id, nombre, modalidad, duracion
             FROM cursos
             WHERE activo = 1
             ORDER BY nombre ASC"
         );
         return $stmt->fetchAll();
+       }catch(PDOException $e){
+            error_log("[Curso::getAll] " . $e->getMessage());
+            return [];
+       }
     }
 
     //Obtener un curso con sus caracteristicas y evaluaciones 
 
-    public function getbyId(int $id): array{
-        //Datos base 
-        $stmt = $this->db->prepare(
+    public function getById(int $id): array{
+        if($id <= 0) return [];
+        //Mas robustes con un trycatch en cada modulo, para manejo de errores
+        try{
+            //Datos base 
+            $stmt = $this->db->prepare(
             "SELECT id, nombre, modalidad, duracion 
             FROM cursos
             WHERE id = ? AND activo = 1"
@@ -34,10 +42,10 @@ class Curso {
         );
         $stmt->execute([$id]);
         $curso = $stmt->fetch();
-
+    
         if(!$curso) return[];
 
-        //Caracteristicas
+        //Caracteristicas - fetch() porque es 1 a 1 
         $stmt = $this->db->prepare(
             "SELECT 
             objetivo, temario, estrategias_didacticas,
@@ -47,9 +55,9 @@ class Curso {
         );
 
         $stmt->execute([$id]);
-        $curso['caracteristicas'] = $stmt->fetch();
+        $curso['caracteristicas'] = $stmt->fetch() ?: [];
 
-         //Evaluaciones
+         //Evaluaciones -fetchAll() por que es 1 a muchos 
         $stmt = $this->db->prepare(
             "SELECT componente, porcentaje
             FROM evaluacion
@@ -59,8 +67,12 @@ class Curso {
         $curso['evaluacion'] = $stmt->fetchAll();
         
         return $curso;
-    }
+        
+        }catch(PDOException $e){
+            error_log("[Curso::getById]" . $e->getMessage());
+            return [];
+        }
     
-
+    }
    
 }

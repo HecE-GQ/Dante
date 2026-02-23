@@ -13,12 +13,23 @@ class CursoController{
 
     //Lista de cursos ç
     public function index(): array {
-        return $this->model->getAll();
+        $cursos = $this->model->getAll();
+
+        if(empty($cursos)){
+            http_response_code(404);
+            return [];
+        }
+        return $cursos;
     }
 
-    public function cursoDetalle(int $id): array{
-        $curso = $this->model->getbyId($id);
 
+    public function getById(int $id): array{
+        //Validar ID antes de llegar al modelo 
+        if($id <= 0){
+            http_response_code(400);
+            return [];
+        }
+        $curso = $this->model->getById($id);
         if(empty($curso)){
             http_response_code(404);
             return [];
