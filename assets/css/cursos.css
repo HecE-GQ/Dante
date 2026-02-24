@@ -1,10 +1,21 @@
-/* ------------------------------------------
+/*
+  ================================================
+  DGTIC - UNAM
+  cursos.css
+
+  Estilos para el listado de cursos en cards 4x4.
+  Depende de: variables.css
+  ================================================
+*/
+
+/* =============================================
    SECCIÓN WRAPPER
-   ------------------------------------------ */
+   ============================================= */
 
 .cursos-section {
-  padding: 3em 0 4em 0;
+  padding: 3em 0 5em 0;
   background: #f4f7fb;
+  min-height: 60vh;
 }
 
 .cursos-intro {
@@ -14,13 +25,12 @@
   padding: 0 1em;
 }
 
-.cursos-intro h1 {
-  font-size: 1em;
+.cursos-intro p {
+  font-size: 0.9em;
   font-weight: var(--font-weight-light);
   color: var(--color-text-muted);
   line-height: 1.7;
-  margin-bottom: 0.5em;
-  letter-spacing: 0.01em;
+  margin-bottom: 0.75em;
 }
 
 .cursos-intro h2 {
@@ -29,7 +39,6 @@
   color: var(--color-primary);
   letter-spacing: -0.02em;
   margin-bottom: 0;
-  position: relative;
   display: inline-block;
 }
 
@@ -43,22 +52,31 @@
   border-radius: 2px;
 }
 
-/* ------------------------------------------
-   GRID DE TARJETAS
-   ------------------------------------------ */
+.cursos-empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 3em 0;
+  font-size: 0.95em;
+}
+
+
+/* =============================================
+   GRID — 4 COLUMNAS
+   ============================================= */
 
 .cursos-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.75em;
-  max-width: 960px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25em;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1em;
+  padding: 0 2em;
 }
 
-/* ------------------------------------------
-   TARJETA
-   ------------------------------------------ */
+
+/* =============================================
+   CARD
+   ============================================= */
 
 .curso-card {
   background: var(--color-bg-white);
@@ -70,6 +88,7 @@
   border: none;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .curso-card:hover {
@@ -79,22 +98,16 @@
   color: inherit;
 }
 
-/* ------------------------------------------
-   IMAGEN
-   ------------------------------------------ */
-
 .curso-card-img {
   width: 100%;
-  height: 180px;
+  height: 130px;
   object-fit: cover;
   display: block;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
 }
 
-/* Placeholder si no hay imagen */
 .curso-card-img-placeholder {
   width: 100%;
-  height: 180px;
+  height: 130px;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   display: flex;
   align-items: center;
@@ -102,78 +115,68 @@
 }
 
 .curso-card-img-placeholder .icon {
-  font-size: 2.5em;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 2em;
+  color: rgba(255, 255, 255, 0.35);
 }
 
-/* ------------------------------------------
-   CONTENIDO
-   ------------------------------------------ */
-
 .curso-card-body {
-  padding: 1.25em 1.5em 1.5em 1.5em;
+  padding: 0.9em 1em 1.1em 1em;
   display: flex;
   flex-direction: column;
   flex: 1;
+  gap: 0.4em;
 }
 
 .curso-card-nombre {
-  font-size: 1em;
+  font-size: 0.85em;
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
-  margin-bottom: 0.4em;
-  line-height: 1.4;
+  margin: 0;
+  line-height: 1.35;
 }
 
 .curso-card-modalidad {
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: var(--color-text-muted);
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 0.4em;
+  gap: 0.35em;
 }
 
 .curso-card-modalidad::before {
   content: '';
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--color-accent);
   flex-shrink: 0;
 }
 
-/* ------------------------------------------
-   ESTADO VACÍO
-   ------------------------------------------ */
 
-.cursos-empty {
-  text-align: center;
-  color: var(--color-text-muted);
-  padding: 3em 0;
-  font-size: 0.95em;
-}
-
-/* ------------------------------------------
+/* =============================================
    RESPONSIVE
-   ------------------------------------------ */
+   ============================================= */
+
+@media screen and (max-width: 1100px) {
+  .cursos-grid { grid-template-columns: repeat(3, 1fr); }
+}
 
 @media screen and (max-width: 840px) {
   .cursos-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25em;
+    padding: 0 1em;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 480px) {
   .cursos-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85em;
+    padding: 0 0.75em;
   }
 
   .curso-card-img,
-  .curso-card-img-placeholder {
-    height: 160px;
-  }
-} 
-
+  .curso-card-img-placeholder { height: 100px; }
+}

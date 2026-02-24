@@ -18,17 +18,19 @@
 <body class="is-preload">
 	<div id="page-wrapper">
 
-		<!-- Header -->
+	<?php include __DIR__ . '/templates/header.php'?>
+
+		<!-- Header 
 		<header id="site-header">
-			<!-- Franja azul claro arriba -->
+					 Franja azul claro arriba 
 			<div class="header-franja-top"></div>
 
-			<!-- Logo + texto sobre fondo blanco -->
+				Logo + texto sobre fondo blanco 
 			<div class="header-main">
 				<div class="header-inner container">
 					<div class="header-logo">
-						<a href="<?=  BASE_URL ?>">
-							<img src="<?=  BASE_URL ?>assets/images/logo_DGTIC_color.png" alt="DGTIC UNAM Logo" />
+						<a href="BASE_URL?>">
+							<img src="BASE_URL?>assets/images/logo_DGTIC_color.png" alt="DGTIC UNAM Logo" />
 						</a>
 					</div>
 					<div class="header-text">
@@ -38,19 +40,19 @@
 				</div>
 			</div>
 
-			<!-- Navbar azul medio -->
+					Navbar azul medio 
 			<nav id="nav">
 				<div class="container">
 					<ul>
-						<li class="current"><a href="<?=BASE_URL?>">Inicio</a></li>
-						<li><a href="<?=BASE_URL?>index.php?page=cursos">Cursos</a></li>
+						<li class="current"><a href="BASE_URL?>">Inicio</a></li>
+						<li><a href="BASE_URL index.php?page=cursos">Cursos</a></li>
 						<li><a href="https://calsdpc.sep.gob.mx/">Convocatoria SIDEPAAE</a></li>
-						<li><a href="<?=BASE_URL?>index.php?page=nosotros">Nosotros</a></li>
-						<li><a href="<?=BASE_URL?>index.php?page=preguntas">Preguntas frecuentes</a></li>
+						<li><a href="BASE_URL?>index.php?page=nosotros">Nosotros</a></li>
+						<li><a href="BASE_URL?>index.php?page=preguntas">Preguntas frecuentes</a></li>
 					</ul>
 				</div>
 			</nav>
-		</header>
+		</header> -->
 
 		<!-- Banner -->
 		<section id="banner">
@@ -101,11 +103,13 @@
 			</div>
 		</section>
 
-<footer id="footer">
+	<?php include __DIR__ . '/templates/footer.php'?>
+
+<!-- <footer id="footer">
   <div class="footer-main">
     <div class="container footer-inner">
 
-      <!-- Columna 1: Logo + links legales -->
+      Columna 1: Logo + links legales 
       <div class="footer-col">
         <div class="footer-logo">
           <img src="assets/images/logo_DGTIC_color.png" alt="DGTIC UNAM" />
@@ -118,7 +122,7 @@
         </ul>
       </div>
 
-      <!-- Columna 2: Ubicación -->
+         Columna 2: Ubicación 
       <div class="footer-col">
         <p class="footer-label">Ubicación</p>
         <p class="footer-address">
@@ -129,7 +133,7 @@
         </p>
       </div>
 
-      <!-- Columna 3: Redes sociales -->
+      	Columna 3: Redes sociales 
       <div class="footer-col footer-social-col">
         <ul class="footer-social">
           <li><a href="#" aria-label="Facebook"><i class="icon brands fa-facebook-f"></i></a></li>
@@ -143,11 +147,11 @@
     </div>
   </div>
 
-  <!-- Copyright -->
+  	Copyright 
   <div class="footer-bottom">
     <p>Hecho en México. Universidad Nacional Autónoma de México (UNAM). Todos los derechos reservados 2025. Esta página puede ser reproducida con fines no lucrativos, siempre y cuando se cite la fuente completa y su dirección electrónica, y no se mutile; de otra forma requiere permiso previo por escrito de la institución.</p>
   </div>
-</footer>
+</footer> -->
 
 
 	<!-- Scripts -->
