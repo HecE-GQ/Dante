@@ -87,8 +87,6 @@ section, summary, time, mark, audio, video {
 
   font-size: 100%;
 
-  font: inherit;
-
   vertical-align: baseline;
 
 }
@@ -1257,7 +1255,7 @@ button:hover,
   body, input, select, textarea { font-size: 13pt; line-height: 1.5em; }
 
 
-  ul.icons li a, ul.icons li span { font-size: 1.5em; }
+  ul.icons li a, ul.icons li span { font-size: 2em; }
 
 
   #banner  { height: 20em; }
@@ -1321,43 +1319,5 @@ button:hover,
 
 
 
-/* =============================================
 
-   RESPONSIVE — NARROWER (max-width: 840px)
-
-   ============================================= */
-
-
-@media screen and (max-width: 840px) {
-
-
-  html { overflow-x: hidden; }
-
-  body { overflow-x: visible; }
-
-
-  .container { width: 95%; }
-
-
-  .row { margin-top: -30px; margin-left: -30px; }
-
-  .row > * { padding: 30px 0 0 30px; }
-
-
-  .row > .imp-narrower    { order: -1; }
-
-  .row > .col-1-narrower  { width: 8.33333%; }
-
-  .row > .col-2-narrower  { width: 16.66667%; }
-
-  .row > .col-3-narrower  { width: 25%; }
-
-  .row > .col-4-narrower  { width: 33.33333%; }
-
-  .row > .col-5-narrower  { width: 41.66667%; }
-
-  .row > .col-6-narrower  { width: 50%; }
-
-  .row > .col-7-narrower  { width: 58.33333%; }
-
-  .row > .col-8-narr
+/* FINAL */

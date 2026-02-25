@@ -48,8 +48,7 @@ class Curso {
         //Caracteristicas - fetch() porque es 1 a 1 
         $stmt = $this->db->prepare(
             "SELECT 
-            objetivo, temario, estrategias_didacticas,
-            recursos_didacticos_y_materiales, bibliografia, recursos_informaticos
+            objetivo_general, perfil_ingreso, perfil_egreso, bibliografia, recursos_informaticos
             FROM caracteristicas
             WHERE id_curso = ?"
         );
@@ -65,7 +64,16 @@ class Curso {
         );
         $stmt->execute([$id]);
         $curso['evaluacion'] = $stmt->fetchAll();
-        
+
+        //Temario
+        $stmt = $this->db->prepare(
+                "SELECT contenido, estrategias_didacticas, recursos_didacticos_y_materiales
+                FROM temario
+                WHERE id_curso = ?"
+        );
+        $stmt->execute([$id]);
+        $curso['temario'] = $stmt->fetchAll();
+
         return $curso;
         
         }catch(PDOException $e){

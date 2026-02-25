@@ -1,122 +1,190 @@
 <?php
-
 declare(strict_types=1);
 require_once __DIR__ . '/../../controllers/CursoController.php';
 
-//Obtener los datos de los cursos, el curso completo 
-//Id 
-$id = $_GET['id'];
+// Validar ID de la URL
+$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
-$controller = new CursoController;
+if ($id <= 0) {
+  require __DIR__ . '/../errors/404.php';
+  exit;
+}
+
+$controller = new CursoController();
 $curso = $controller->getById($id);
 
+if (empty($curso)) {
+  require __DIR__ . '/../errors/404.php';
+  exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>Cursos — DGTIC UNAM</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/variables.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/main.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/footer.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/cursos.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title><?= htmlspecialchars($curso['nombre']) ?> — DGTIC UNAM</title>
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/variables.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/main.css" /> 
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/footer.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/curso-detalle.css" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/modal.css" />
 </head>
-
 <body class="is-preload">
-    <div id="page-wrapper">
 
-        <?php include __DIR__ . '/../templates/header.php'; ?>
-        <!-- Header 
-		<header id="site-header">
-					 Franja azul claro arriba 
-			<div class="header-franja-top"></div>
 
-				Logo + texto sobre fondo blanco 
-			<div class="header-main">
-				<div class="header-inner container">
-					<div class="header-logo">
-						<a href="BASE_URL?>">
-							<img src="BASE_URL?>assets/images/logo_DGTIC_color.png" alt="DGTIC UNAM Logo" />
-						</a>
-					</div>
-					<div class="header-text">
-						<p>Dirección de Docencia en</p>
-						<p class="header-text-bold">Tecnologías de Información y Comunicación</p>
-					</div>
-				</div>
-			</div>
+  <?php include __DIR__ . '/../templates/header.php'; ?>
 
-					Navbar azul medio 
-			<nav id="nav">
-				<div class="container">
-					<ul>
-						<li class="current"><a href="BASE_URL?>">Inicio</a></li>
-						<li><a href="BASE_URL index.php?page=cursos">Cursos</a></li>
-						<li><a href="https://calsdpc.sep.gob.mx/">Convocatoria SIDEPAAE</a></li>
-						<li><a href="BASE_URL?>index.php?page=nosotros">Nosotros</a></li>
-						<li><a href="BASE_URL?>index.php?page=preguntas">Preguntas frecuentes</a></li>
-					</ul>
-				</div>
-			</nav>
-		</header> -->
-       <h1>Hola</h1>
+  <!-- MODAL DE REQUISITOS -->
+  <div id="modal-requisitos" class="modal-overlay" aria-hidden="true">
+  <div class="modal-box">
+    <h2>Requisitos para la inscripción</h2>
+    <ol class="modal-lista">
+      <li>Contar con una identificación oficial con fotografía, vigente, como INE, credencial SEP o Pasaporte.</li>
+      <li>Escáner o celular para tomar una foto de su credencial, para el envío por correo electrónico.</li>
+      <li>Contar con un equipo de cómputo con acceso a internet y cámara web activa en todo momento.</li>
+      <li>Navegador web actualizado.</li>
+      <li>Acceso a una cuenta de correo para uso personal (registrada en el SIDEPAAE).</li>
+      <li>30 minutos libres para responder el examen diagnóstico.</li>
+    </ol>
+    <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
+  </div>
+</div>
 
-            <?php include __DIR__ . '/../templates/footer.php'; ?>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="curso-detail">
 
-            <!-- <footer id="footer">
-  <div class="footer-main">
-    <div class="container footer-inner">
+    <!-- HERO: título + info general + evaluación -->
+    <section class="curso-hero">
 
-      Columna 1: Logo + links legales 
-      <div class="footer-col">
-        <div class="footer-logo">
-          <img src="assets/images/logo_DGTIC_color.png" alt="DGTIC UNAM" />
+      <div class="hero-titulo">
+        <a href="<?= BASE_URL ?>index.php?page=cursos" class="hero-back">
+          <span class="icon solid fa-arrow-left"></span> Cursos
+        </a>
+        <h1><?= htmlspecialchars($curso['nombre']) ?></h1>
+      </div>
+
+      <div class="hero-cards">
+
+        <!-- Card info general -->
+        <div class="card-info">
+          <div class="card-info-item">
+            <span class="card-info-label">Modalidad</span>
+            <span class="card-info-valor"><?= htmlspecialchars($curso['modalidad']) ?></span>
+          </div>
+          <div class="card-info-divider"></div>
+          <div class="card-info-item">
+            <span class="card-info-label">Duración</span>
+            <span class="card-info-valor"><?= htmlspecialchars($curso['duracion']) ?></span>
+          </div>
         </div>
-        <ul class="footer-links">
-          <li><a href="#">Avisos de privacidad de la DGTIC</a></li>
-          <li><a href="#">Política General de Seguridad de la Información de la DGTIC</a></li>
-          <li><a href="#">Código de ética de la UNAM</a></li>
-          <li><a href="#">Normatividad Interna</a></li>
-        </ul>
+
+        <!-- Card evaluación -->
+        <div class="card-evaluacion">
+          <h3 class="card-section-title">Evaluación</h3>
+          <table class="tabla-evaluacion">
+            <thead>
+              <tr>
+                <th>Componente</th>
+                <th>Porcentaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($curso['evaluacion'] as $eval): ?>
+                <tr>
+                  <td><?= htmlspecialchars($eval['componente']) ?></td>
+                  <td><?= htmlspecialchars((string)$eval['porcentaje']) ?>%</td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PERFILES -->
+    <section class="curso-perfiles">
+
+      <div class="perfil-card objetivo">
+        <h2 class="perfil-titulo">Objetivo General</h2>
+        <p><?= htmlspecialchars($curso['caracteristicas']['objetivo_general'] ?? '') ?></p>
       </div>
 
-         Columna 2: Ubicación 
-      <div class="footer-col">
-        <p class="footer-label">Ubicación</p>
-        <p class="footer-address">
-          Circuito exterior s/n, frente a la
-          Facultad de Contaduría y Administración,
-          Ciudad Universitaria, C.P. 04510,
-          Ciudad de México
-        </p>
+      <div class="perfil-card">
+        <h2 class="perfil-titulo">Perfil de Ingreso</h2>
+        <p><?= htmlspecialchars($curso['caracteristicas']['perfil_ingreso'] ?? '') ?></p>
       </div>
 
-      	Columna 3: Redes sociales 
-      <div class="footer-col footer-social-col">
-        <ul class="footer-social">
-          <li><a href="#" aria-label="Facebook"><i class="icon brands fa-facebook-f"></i></a></li>
-          <li><a href="#" aria-label="X (Twitter)"><i class="icon brands fa-x-twitter"></i></a></li>
-          <li><a href="#" aria-label="YouTube"><i class="icon brands fa-youtube"></i></a></li>
-          <li><a href="#" aria-label="Instagram"><i class="icon brands fa-instagram"></i></a></li>
-          <li><a href="#" aria-label="LinkedIn"><i class="icon brands fa-linkedin-in"></i></a></li>
-        </ul>
+      <div class="perfil-card">
+        <h2 class="perfil-titulo">Perfil de Egreso</h2>
+        <p><?= htmlspecialchars($curso['caracteristicas']['perfil_egreso'] ?? '') ?></p>
       </div>
 
-    </div>
-  </div>
+    </section>
 
-  	Copyright 
-  <div class="footer-bottom">
-    <p>Hecho en México. Universidad Nacional Autónoma de México (UNAM). Todos los derechos reservados 2025. Esta página puede ser reproducida con fines no lucrativos, siempre y cuando se cite la fuente completa y su dirección electrónica, y no se mutile; de otra forma requiere permiso previo por escrito de la institución.</p>
-  </div>
-</footer> -->
+    <!-- TEMARIO -->
+    <section class="curso-temario">
+      <h2 class="section-title">Temario</h2>
+      <div class="tabla-wrapper">
+        <table class="tabla-temario">
+          <thead>
+            <tr>
+              <th>Contenido</th>
+              <th>Estrategias Didácticas</th>
+              <th>Recursos Didácticos y Materiales</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php if (empty($curso['temario'])): ?>
+              <tr>
+                <td colspan="3" class="tabla-vacia">Sin temario registrado.</td>
+              </tr>
+            <?php else: ?>
+              <?php foreach ($curso['temario'] as $tema): ?>
+                <tr>
+                  <td><?= nl2br(htmlspecialchars($tema['contenido'])) ?></td>
+                  <td><?= nl2br(htmlspecialchars($tema['estrategias_didacticas'] ?? '')) ?></td>
+                  <td><?= nl2br(htmlspecialchars($tema['recursos_didacticos_y_materiales'] ?? '')) ?></td>
+                </tr>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    </div>
-    <script src="<?= BASE_URL ?>assets/js/jquery.min.js"></script>
-    <Script src="<?= BASE_URL ?>assets/js/app.js"></script>
+    <!-- BIBLIOGRAFÍA Y RECURSOS -->
+    <section class="curso-recursos">
+
+      <div class="recursos-card">
+        <h2 class="perfil-titulo">
+          <span class="icon solid fa-book"></span> Bibliografía
+        </h2>
+        <ul class="lista-recursos"> 
+            <?php foreach(explode('|', $curso['caracteristicas']['bibliografia']) as $item): ?> 
+                <?php if(trim($item) !== ''): ?> <li><?= htmlspecialchars(trim($item)) ?></li> 
+                    <?php endif; ?> <?php endforeach; ?> </ul> 
+      </div>
+
+      <div class="recursos-card">
+        <h2 class="perfil-titulo">
+          <span class="icon solid fa-laptop"></span> Recursos Informáticos
+        </h2>
+        <ul class="lista-recursos"> <?php foreach(explode('.', $curso['caracteristicas']['recursos_informaticos']) as $item): ?> 
+            <?php if(trim($item) !== ''): ?> <li>
+            <?= htmlspecialchars(trim($item)) ?></li> <?php endif; ?> <?php endforeach; ?> </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <?php include __DIR__ . '/../templates/footer.php'; ?>
+
+</div>
+<script src="<?= BASE_URL ?>assets/js/jquery.min.js"></script>
+<script src="<?= BASE_URL ?>assets/js/app.js"></script>
 </body>
-
 </html>

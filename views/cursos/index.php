@@ -71,7 +71,7 @@ $cursos = $controller->index();
      <?php else: ?>
         <div class="cursos-grid">
             <?php foreach($cursos as $curso): ?>
-            <a href="curso.php?id=<?= $cursos['id'] ?>" class="curso-card">
+            <a href="<?= BASE_URL ?>index.php?page=curso&id=<?= $curso['id'] ?>" class="curso-card">
                 <!-- PlaceHolder - IMAGENES SE AGREGARAN MANUALMENE DESPUES -->
                  <div class="placeholder-image">
                     <span class="icon solid fa-laptop-code"></span>

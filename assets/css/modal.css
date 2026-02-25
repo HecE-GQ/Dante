@@ -1,95 +1,86 @@
-/*
-  ================================================
-  DGTIC - UNAM
-  modal.css
-
-  Estilos del modal de requisitos de inscripción.
-  Se muestra automáticamente al entrar a la
-  página de un curso específico.
-  Depende de: variables.css
-  ================================================
-*/
-
-/* ------------------------------------------
-   OVERLAY
-   ------------------------------------------ */
+/* =========================
+   MODAL - DGTIC UNAM
+   Diseño limpio y moderno
+   ========================= */
 
 .modal-overlay {
-  display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: var(--z-modal);
-  align-items: center;
+  background: rgba(0,0,0,0.6);
+  display: none;
   justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 1000;
 }
 
-.modal-overlay.activo {
+.modal-overlay.active {
   display: flex;
 }
 
-/* ------------------------------------------
-   CAJA DEL MODAL
-   ------------------------------------------ */
+.modal-box {
+  background: white;
+  width: 100%;
+  max-width: 600px; /* ← más ancho */
+  border-radius: 8px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: modalFade 0.2s ease-out;
+}
+
+/* ===== TIPOGRAFÍA PROPIA DEL MODAL ===== */
 
 .modal-box {
-  background: var(--color-bg-white);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg) var(--spacing-xl);
-  width: 340px;
-  max-width: 90%;
-  box-shadow: var(--shadow-lg);
-  animation: slideUp 0.25s ease;
+  font-size: 16px; /* ← base independiente */
 }
 
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
+.modal-box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.3;
+  font-weight: 700;
 }
 
-/* ------------------------------------------
-   CONTENIDO
-   ------------------------------------------ */
-
-.modal-box h3 {
-  font-size: 12px;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-body);
-  margin-bottom: var(--spacing-sm);
-  text-align: center;
-  letter-spacing: 0.3px;
+.modal-box ul {
+  margin-left: 1.5rem;
 }
 
-.modal-box ol {
-  padding-left: var(--spacing-md);
-  color: var(--color-text-body);
-  font-size: 11px;
-  line-height: 1.6;
-  margin-bottom: var(--spacing-md);
+.modal-box li {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
 }
 
-.modal-box ol li {
-  margin-bottom: var(--spacing-xs);
+/* ===== BOTÓN CERRAR ===== */
+
+.modal-close {
+  margin-top: 1.5rem;
+  text-align: right;
 }
 
-/* ------------------------------------------
-   BOTÓN CERRAR
-   ------------------------------------------ */
-
-.btn-cerrar {
-  display: block;
-  width: 100%;
-  background: var(--color-primary);
-  color: var(--color-text-white);
+.modal-close button {
+  background: #1b3a6b;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
   border: none;
-  padding: var(--spacing-sm);
-  border-radius: var(--radius-md);
   cursor: pointer;
-  font-size: 13px;
-  font-weight: var(--font-weight-bold);
-  transition: background var(--transition-fast);
+  font-weight: 600;
 }
 
-.btn-cerrar:hover {
-  background: var(--color-secondary);
-} 
+.modal-close button:hover {
+  opacity: 0.9;
+}
+
+/* ===== ANIMACIÓN ===== */
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
