@@ -198,19 +198,7 @@ body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 }
 
 
-body, input, select, textarea {
 
-  color: var(--color-text-body);
-
-  font-family: var(--font-main);
-
-  font-size: var(--font-size-base);
-
-  font-weight: var(--font-weight-light);
-
-  line-height: var(--line-height-base);
-
-}
 
 
 a {
@@ -474,7 +462,7 @@ blockquote {
 section.special, article.special { text-align: center; }
 
 
-header p {
+#banner header p {
 
   color: var(--color-text-muted);
 
@@ -882,43 +870,9 @@ input[type="reset"],
 
 input[type="button"],
 
-button,
+.button,
 
-.button {
 
-  appearance: none;
-
-  transition: background-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
-
-  background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-
-  background-color: var(--color-link);
-
-  border-radius: var(--radius-sm);
-
-  border: 0;
-
-  color: var(--color-text-white);
-
-  cursor: pointer;
-
-  display: inline-block;
-
-  padding: 0 1.5em;
-
-  line-height: 2.75em;
-
-  min-width: 9em;
-
-  text-align: center;
-
-  text-decoration: none;
-
-  font-weight: var(--font-weight-bold);
-
-  letter-spacing: -0.025em;
-
-}
 
 
 input[type="submit"]:hover,
@@ -1155,168 +1109,155 @@ button:hover,
 
 /* =============================================
 
-   RESPONSIVE — WIDE (max-width: 1680px)
+   RESPONSIVE 
 
    ============================================= */
 
+/* =====================================================
+   BASE TIPOGRÁFICA GLOBAL
+   Solo define la base. Nada agresivo.
+===================================================== */
 
-@media screen and (max-width: 1680px) {
+/* ---------------------------
+   HTML base
+--------------------------- */
 
+html {
+  font-size: 100%; /* 16px base estándar */
+}
 
-  .container { width: 1200px; }
+/* ---------------------------
+   BODY
+--------------------------- */
 
+body {
+  font-family: var(--font-main);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base); /* 16px fijo */
+  line-height: var(--line-height-base);
+  color: var(--color-text-body);
+  background-color: var(--color-bg-page);
+}
 
-  .row { margin-top: -40px; margin-left: -40px; }
+/* =====================================================
+   TEXTOS GENERALES
+   Nada dependiente de breakpoints
+===================================================== */
 
-  .row > * { padding: 40px 0 0 40px; }
+p {
+  font-size: 1rem; /* 16px */
+  margin-bottom: var(--spacing-md);
+}
 
+small {
+  font-size: var(--font-size-sm);
+}
 
-  .row > .imp-wide    { order: -1; }
+strong {
+  font-weight: var(--font-weight-bold);
+}
 
-  .row > .col-1-wide  { width: 8.33333%; }
+em {
+  font-style: italic;
+}
 
-  .row > .col-2-wide  { width: 16.66667%; }
+/* =====================================================
+   HEADINGS (ESCALA ESTABLE EN PX)
+   NO usar em para evitar herencias raras
+===================================================== */
 
-  .row > .col-3-wide  { width: 25%; }
+h1 {
+  font-size: 32px;
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+}
 
-  .row > .col-4-wide  { width: 33.33333%; }
+h2 {
+  font-size: 26px;
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+}
 
-  .row > .col-5-wide  { width: 41.66667%; }
+h3 {
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+}
 
-  .row > .col-6-wide  { width: 50%; }
+h4 {
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+}
 
-  .row > .col-7-wide  { width: 58.33333%; }
+h5 {
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+}
 
-  .row > .col-8-wide  { width: 66.66667%; }
+h6 {
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+}
 
-  .row > .col-9-wide  { width: 75%; }
+/* =====================================================
+   LINKS
+===================================================== */
 
-  .row > .col-10-wide { width: 83.33333%; }
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
 
-  .row > .col-11-wide { width: 91.66667%; }
+a:hover {
+  text-decoration: underline;
+}
 
-  .row > .col-12-wide { width: 100%; }
+/* =====================================================
+   FORMULARIOS
+   NO forzar tamaño dinámico
+===================================================== */
 
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem; /* 16px fijo */
+  line-height: var(--line-height-base);
+}
 
-  body, input, select, textarea { font-size: 14pt; line-height: 1.5em; }
+/* =====================================================
+   BOTONES
+   NO tocar <button> global
+===================================================== */
 
+.button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  font-family: inherit;
+  font-size: 1rem;
+}
 
-  #banner { height: 24em; }
+/* =====================================================
+   MEDIA QUERIES
+   SOLO LAYOUT.
+   NUNCA cambiar font-size global aquí.
+===================================================== */
+
+@media (max-width: 980px) {
+
+  /* SOLO ajustes estructurales si existen */
 
 }
 
+@media (max-width: 736px) {
 
-
-/* =============================================
-
-   RESPONSIVE — NORMAL (max-width: 1280px)
-
-   ============================================= */
-
-
-@media screen and (max-width: 1280px) {
-
-
-  .container { width: 960px; }
-
-
-  .row { margin-top: -30px; margin-left: -30px; }
-
-  .row > * { padding: 30px 0 0 30px; }
-
-
-  .row > .imp-normal    { order: -1; }
-
-  .row > .col-1-normal  { width: 8.33333%; }
-
-  .row > .col-2-normal  { width: 16.66667%; }
-
-  .row > .col-3-normal  { width: 25%; }
-
-  .row > .col-4-normal  { width: 33.33333%; }
-
-  .row > .col-5-normal  { width: 41.66667%; }
-
-  .row > .col-6-normal  { width: 50%; }
-
-  .row > .col-7-normal  { width: 58.33333%; }
-
-  .row > .col-8-normal  { width: 66.66667%; }
-
-  .row > .col-9-normal  { width: 75%; }
-
-  .row > .col-10-normal { width: 83.33333%; }
-
-  .row > .col-11-normal { width: 91.66667%; }
-
-  .row > .col-12-normal { width: 100%; }
-
-
-  body, input, select, textarea { font-size: 13pt; line-height: 1.5em; }
-
-
-  ul.icons li a, ul.icons li span { font-size: 2em; }
-
-
-  #banner  { height: 20em; }
-
-  .wrapper { padding: 3em 0 1em 0; }
-
-  #cta     { padding: 2em 0; }
-
+  /* SOLO layout */
 }
-
-
-
-/* =============================================
-
-   RESPONSIVE — NARROW (max-width: 980px)
-
-   ============================================= */
-
-
-@media screen and (max-width: 980px) {
-
-
-  .container { width: 95%; }
-
-
-  .row { margin-top: -30px; margin-left: -30px; }
-
-  .row > * { padding: 30px 0 0 30px; }
-
-
-  .row > .imp-narrow    { order: -1; }
-
-  .row > .col-1-narrow  { width: 8.33333%; }
-
-  .row > .col-2-narrow  { width: 16.66667%; }
-
-  .row > .col-3-narrow  { width: 25%; }
-
-  .row > .col-4-narrow  { width: 33.33333%; }
-
-  .row > .col-5-narrow  { width: 41.66667%; }
-
-  .row > .col-6-narrow  { width: 50%; }
-
-  .row > .col-7-narrow  { width: 58.33333%; }
-
-  .row > .col-8-narrow  { width: 66.66667%; }
-
-  .row > .col-9-narrow  { width: 75%; }
-
-  .row > .col-10-narrow { width: 83.33333%; }
-
-  .row > .col-11-narrow { width: 91.66667%; }
-
-  .row > .col-12-narrow { width: 100%; }
-
-
-  body, input, select, textarea { font-size: 12pt; line-height: 1.5em; }
-
-}
-
 
 
 

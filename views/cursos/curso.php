@@ -11,7 +11,7 @@ if ($id <= 0) {
 }
 
 $controller = new CursoController();
-$curso = $controller->getById($id);
+$curso      = $controller->getById($id);
 
 if (empty($curso)) {
   require __DIR__ . '/../errors/404.php';
@@ -25,34 +25,39 @@ if (empty($curso)) {
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <title><?= htmlspecialchars($curso['nombre']) ?> — DGTIC UNAM</title>
   <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/variables.css" />
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/main.css" /> 
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/main.css" />
   <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css" />
   <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/footer.css" />
   <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/curso-detalle.css" />
   <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/modal.css" />
 </head>
 <body class="is-preload">
-
+<div id="page-wrapper">
 
   <?php include __DIR__ . '/../templates/header.php'; ?>
 
-  <!-- MODAL DE REQUISITOS -->
+  <!-- ============================================
+       MODAL DE REQUISITOS
+       Se abre con el botón flotante
+  ============================================= -->
   <div id="modal-requisitos" class="modal-overlay" aria-hidden="true">
-  <div class="modal-box">
-    <h2>Requisitos para la inscripción</h2>
-    <ol class="modal-lista">
-      <li>Contar con una identificación oficial con fotografía, vigente, como INE, credencial SEP o Pasaporte.</li>
-      <li>Escáner o celular para tomar una foto de su credencial, para el envío por correo electrónico.</li>
-      <li>Contar con un equipo de cómputo con acceso a internet y cámara web activa en todo momento.</li>
-      <li>Navegador web actualizado.</li>
-      <li>Acceso a una cuenta de correo para uso personal (registrada en el SIDEPAAE).</li>
-      <li>30 minutos libres para responder el examen diagnóstico.</li>
-    </ol>
-    <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
+    <div class="modal-box">
+      <h2>Requisitos para la inscripción</h2>
+      <ol class="modal-lista">
+        <li>Contar con una identificación oficial con fotografía, vigente, como INE, credencial SEP o Pasaporte.</li>
+        <li>Escáner o celular para tomar una foto de su credencial, para el envío por correo electrónico.</li>
+        <li>Contar con un equipo de cómputo con acceso a internet y cámara web activa en todo momento, que se empleará para hacer el examen diagnóstico.</li>
+        <li>Navegador web actualizado.</li>
+        <li>Acceso a una cuenta de correo para uso personal (registrada en el SIDEPAAE).</li>
+        <li>30 minutos libres para responder el examen diagnóstico.</li>
+      </ol>
+      <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
+    </div>
   </div>
-</div>
 
-  <!-- CONTENIDO PRINCIPAL -->
+  <!-- ============================================
+       CONTENIDO PRINCIPAL
+  ============================================= -->
   <main class="curso-detail">
 
     <!-- HERO: título + info general + evaluación -->
@@ -67,7 +72,7 @@ if (empty($curso)) {
 
       <div class="hero-cards">
 
-        <!-- Card info general -->
+        <!-- Card modalidad y duración -->
         <div class="card-info">
           <div class="card-info-item">
             <span class="card-info-label">Modalidad</span>
@@ -162,19 +167,26 @@ if (empty($curso)) {
         <h2 class="perfil-titulo">
           <span class="icon solid fa-book"></span> Bibliografía
         </h2>
-        <ul class="lista-recursos"> 
-            <?php foreach(explode('|', $curso['caracteristicas']['bibliografia']) as $item): ?> 
-                <?php if(trim($item) !== ''): ?> <li><?= htmlspecialchars(trim($item)) ?></li> 
-                    <?php endif; ?> <?php endforeach; ?> </ul> 
+        <ul class="lista-recursos">
+          <?php foreach (explode('|', $curso['caracteristicas']['bibliografia'] ?? '') as $item): ?>
+            <?php if (trim($item) !== ''): ?>
+              <li><?= htmlspecialchars(trim($item)) ?></li>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        </ul>
       </div>
 
       <div class="recursos-card">
         <h2 class="perfil-titulo">
           <span class="icon solid fa-laptop"></span> Recursos Informáticos
         </h2>
-        <ul class="lista-recursos"> <?php foreach(explode('.', $curso['caracteristicas']['recursos_informaticos']) as $item): ?> 
-            <?php if(trim($item) !== ''): ?> <li>
-            <?= htmlspecialchars(trim($item)) ?></li> <?php endif; ?> <?php endforeach; ?> </ul>
+        <ul class="lista-recursos">
+          <?php foreach (explode('.', $curso['caracteristicas']['recursos_informaticos'] ?? '') as $item): ?>
+            <?php if (trim($item) !== ''): ?>
+              <li><?= htmlspecialchars(trim($item)) ?></li>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        </ul>
       </div>
 
     </section>
@@ -183,7 +195,16 @@ if (empty($curso)) {
 
   <?php include __DIR__ . '/../templates/footer.php'; ?>
 
-</div>
+  <!-- BOTÓN FLOTANTE — abre el modal de requisitos -->
+  <button class="btn-requisitos-flotante" onclick="abrirModal()"
+          title="Ver requisitos de inscripción"
+          aria-label="Ver requisitos de inscripción">
+    <span class="btn-req-icono">?</span>
+    <span class="btn-req-texto">Requisitos</span>
+  </button>
+
+</div><!-- /page-wrapper -->
+
 <script src="<?= BASE_URL ?>assets/js/jquery.min.js"></script>
 <script src="<?= BASE_URL ?>assets/js/app.js"></script>
 </body>

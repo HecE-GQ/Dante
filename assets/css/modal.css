@@ -1,86 +1,214 @@
-/* =========================
-   MODAL - DGTIC UNAM
-   Diseño limpio y moderno
-   ========================= */
+/*
+  ================================================
+  DGTIC - UNAM
+  modal.css
+
+  Modal de requisitos de inscripción.
+  Se activa con el botón flotante "?" en la
+  página individual de cada curso.
+  Depende de: variables.css
+  ================================================
+*/
+
+/* ------------------------------------------
+   OVERLAY
+   ------------------------------------------ */
 
 .modal-overlay {
+  display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: var(--z-modal);
   align-items: center;
-  padding: 1rem;
-  z-index: 1000;
+  justify-content: center;
+  padding: 2em;
 }
 
-.modal-overlay.active {
+.modal-overlay.activo {
   display: flex;
 }
 
+
+/* ------------------------------------------
+   CAJA DEL MODAL
+   ------------------------------------------ */
+
 .modal-box {
-  background: white;
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  padding: 2.5em 3em;
   width: 100%;
-  max-width: 600px; /* ← más ancho */
-  border-radius: 8px;
-  padding: 2rem 2.5rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  animation: modalFade 0.2s ease-out;
+  max-width: 680px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.28s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
 }
 
-/* ===== TIPOGRAFÍA PROPIA DEL MODAL ===== */
-
-.modal-box {
-  font-size: 16px; /* ← base independiente */
+@keyframes slideUp {
+  from { transform: translateY(28px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
 }
 
-.modal-box h2 {
-  font-size: 1.6rem;
-  margin-bottom: 1.2rem;
+
+/* ------------------------------------------
+   TÍTULO
+   ------------------------------------------ */
+
+#modal-requisitos .modal-box h2 {
+  font-size: 22px !important;
+  font-weight: bold !important;
+  color: var(--color-primary);
+  margin: 0;
   line-height: 1.3;
-  font-weight: 700;
+  border-bottom: 3px solid var(--color-accent);
+  padding-bottom: 0.5em;
 }
 
-.modal-box ul {
-  margin-left: 1.5rem;
+
+/* ------------------------------------------
+   LISTA DE REQUISITOS
+   ------------------------------------------ */
+
+#modal-requisitos .modal-lista {
+  list-style: decimal !important;
+  padding-left: 1.5em !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
 }
 
-.modal-box li {
-  font-size: 1rem;
-  margin-bottom: 0.6rem;
-  line-height: 1.5;
+#modal-requisitos .modal-lista li {
+  list-style: decimal !important;
+  font-size: 18px !important;
+  line-height: 1.75 !important;
+  color: var(--color-text-body);
+  font-family: var(--font-main) !important;
 }
 
-/* ===== BOTÓN CERRAR ===== */
 
-.modal-close {
-  margin-top: 1.5rem;
-  text-align: right;
-}
+/* ------------------------------------------
+   BOTÓN CERRAR — abajo, ancho completo
+   ------------------------------------------ */
 
-.modal-close button {
-  background: #1b3a6b;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+#modal-requisitos .btn-cerrar {
+  display: block;
+  width: 100%;
+  background: var(--color-primary) !important;
+  background-image: none !important;
+  color: var(--color-text-white) !important;
   border: none;
+  padding: 0.9em;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-weight: 600;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  letter-spacing: 0.03em;
+  transition: background var(--transition-fast);
+  margin-top: 0.5em;
+  min-width: unset;
+  line-height: normal !important;
 }
 
-.modal-close button:hover {
-  opacity: 0.9;
+#modal-requisitos .btn-cerrar:hover {
+  background: var(--color-secondary) !important;
+  color: var(--color-text-white) !important;
 }
 
-/* ===== ANIMACIÓN ===== */
 
-@keyframes modalFade {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+/* ------------------------------------------
+   BOTÓN FLOTANTE — esquina inferior derecha
+   ------------------------------------------ */
+
+.btn-requisitos-flotante {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  z-index: 998;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+
+  background: var(--color-primary);
+  background-image: none !important;
+  color: var(--color-text-white);
+  border: none;
+  border-radius: 50px;
+  padding: 0.75em 1.25em;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 65, 121, 0.35);
+  transition: background var(--transition-fast),
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: bold;
+  line-height: normal !important;
+  min-width: unset;
+  letter-spacing: 0.02em;
+}
+
+.btn-requisitos-flotante:hover {
+  background: var(--color-secondary) !important;
+  color: var(--color-text-white) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 65, 121, 0.4);
+}
+
+.btn-req-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  font-size: 1em;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.btn-req-texto {
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+}
+
+
+/* ------------------------------------------
+   RESPONSIVE
+   ------------------------------------------ */
+
+@media screen and (max-width: 720px) {
+  .modal-box {
+    padding: 2em 1.75em;
+    max-height: 92vh;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+}
+
+/* En móvil el botón flotante colapsa a círculo */
+@media screen and (max-width: 600px) {
+  .btn-requisitos-flotante {
+    padding: 0.85em;
+    border-radius: 50%;
+    bottom: 1.5em;
+    right: 1.5em;
+  }
+
+  .btn-req-texto {
+    display: none;
+  }
+
+  .btn-req-icono {
+    width: 1.4em;
+    height: 1.4em;
+    background: none;
+    font-size: 1.2em;
   }
 }
