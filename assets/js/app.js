@@ -102,12 +102,8 @@
   // Exponer cerrarModal globalmente para el onclick del HTML
   window.cerrarModal = cerrarModal;
 
-  // Abrir automáticamente si existe el modal en la página
-  if ($('#modal-requisitos').length) {
-    $(window).on('load', function () {
-      abrirModal();
-    });
-  }
+ //Exponer abriModal globalmente para el click del boton
+ window.abrirModal = abrirModal;
 
   // Cerrar al hacer click en el overlay (fuera del modal-box)
   $('#modal-requisitos').on('click', function (e) {
