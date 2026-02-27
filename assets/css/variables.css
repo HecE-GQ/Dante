@@ -33,8 +33,8 @@
 
   /* Texto */
   --color-text:           #1a3a6b;   /* Texto institucional azul */
-  --color-text-body:      #474747;   /* Texto general del sitio */
-  --color-text-muted:     #999999;   /* Texto secundario / placeholders */
+  --color-text-body:      #111111;   /* Texto general del sitio */
+  --color-text-muted:     #6b6868;   /* Texto secundario / placeholders */
   --color-text-light:     #c0c0c0;   /* Texto sobre fondos oscuros */
   --color-text-white:     #ffffff;
 
