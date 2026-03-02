@@ -1,0 +1,12 @@
+RewriteEngine On
+
+#Si el archivo existe tal cual, sirvelo directo(imagenes, css, js)
+RewriteCond ${REQUEST_FILENAME} !-f
+RewriteCond ${REQUEST_FILENAME} !-d
+
+#Todo lo demas a index.php
+
+RewriteRule ^(.*)$ index.php?page=$1 [QSA,L]
+
+#FORZAR INDEX.PHP SOBRE HTML
+DirectoryIndex index.php index.html
