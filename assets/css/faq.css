@@ -1,0 +1,109 @@
+
+h1{
+    text-align: center;
+    color: #e9b808;
+}
+/* ==========================================
+   CONTENEDOR GENERAL (IMPORTANTE)
+========================================== */
+
+section {
+  max-width: 900px;   /* Limita el ancho */
+  margin: 0 auto;     /* Centra */
+  padding: 0 1rem;    /* Respira en móvil */
+}
+
+/* ==========================================
+   FAQ ITEM
+========================================== */
+
+.faq {
+  position: relative;
+  padding: 1.2rem 3rem 1.2rem 1.5rem;
+  margin-bottom: 0.8rem;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  transition: all 0.2s ease;
+}
+
+/* Hover elegante */
+.faq:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ----------------------------------
+   TITULO
+---------------------------------- */
+
+.faq-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.faq.active .faq-title {
+  color: #003366;
+}
+
+/* ----------------------------------
+   BOTÓN +
+---------------------------------- */
+
+.faq-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: #003366;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.2s ease;
+}
+
+.faq-toggle:hover {
+  background: #002244;
+}
+
+.faq.active .faq-toggle {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* ----------------------------------
+   RESPUESTA
+---------------------------------- */
+
+.faq-text {
+  margin-top: 0.8rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.faq-text img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+}
+
+/* ----------------------------------
+   SECCIONES
+---------------------------------- */
+
+.faq-section-title {
+  max-width: 900px;
+  margin: 2.5rem auto 1rem auto;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #003366;
+  padding-left: 0.5rem;
+}

@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/footer.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/preguntas.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/faq.css">
 </head>
 <bodyc class="is-preload">
     <div id="page-wrapper">
         <?php include __DIR__ . '/../templates/header.php'; ?>
-        <span>icono "?"</span>
+        
         <h1>Preguntas Frecuentes</h1>
 
         <section class="faq-container">

@@ -137,4 +137,61 @@
     }
   });
 
+  /* ------------------------------------------
+   6. FAQ — ACORDEÓN
+   Compatible con estructura actual
+------------------------------------------ */
+
+function initFAQ() {
+
+  var $faqs = $('.faq');
+  if (!$faqs.length) return;
+
+  // Ocultar todas las respuestas al iniciar
+  $('.faq-text').hide();
+
+  $('.faq-toggle, .faq-title').on('click', function () {
+
+    var $currentFaq = $(this).closest('.faq');
+
+    // Cerrar todos los demás
+    $faqs.not($currentFaq)
+      .removeClass('active')
+      .find('.faq-text')
+      .stop(true, true)
+      .slideUp(200);
+
+    $faqs.not($currentFaq)
+      .find('.faq-toggle')
+      .text('+');
+
+    // Alternar actual
+    if ($currentFaq.hasClass('active')) {
+
+      $currentFaq.removeClass('active');
+      $currentFaq.find('.faq-text')
+        .stop(true, true)
+        .slideUp(200);
+
+      $currentFaq.find('.faq-toggle').text('+');
+
+    } else {
+
+      $currentFaq.addClass('active');
+      $currentFaq.find('.faq-text')
+        .stop(true, true)
+        .slideDown(200);
+
+      $currentFaq.find('.faq-toggle').text('−');
+
+    }
+
+  });
+
+}
+
+initFAQ();
+
+
+
 })(jQuery); 
