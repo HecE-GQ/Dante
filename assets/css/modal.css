@@ -96,6 +96,7 @@
    BOTÓN CERRAR — abajo, ancho completo
    ------------------------------------------ */
 
+#modal-creditos .btn-cerrar,
 #modal-requisitos .btn-cerrar {
   display: block;
   width: 100%;
@@ -114,8 +115,8 @@
   min-width: unset;
   line-height: normal !important;
 }
-
-#modal-requisitos .btn-cerrar:hover {
+#modal-requisitos .btn-cerrar:hover, 
+#modal-creditos .btn-cerrar:hover{
   background: var(--color-secondary) !important;
   color: var(--color-text-white) !important;
 }
@@ -124,13 +125,23 @@
 /* ------------------------------------------
    BOTÓN FLOTANTE — esquina inferior derecha
    ------------------------------------------ */
-
-.btn-requisitos-flotante {
+/* Posicion*/
+.btn-requisitos-flotante{
   position: fixed;
   bottom: 2em;
   right: 2em;
   z-index: 998;
-
+}
+/* Posicionamiento del segundo boton, encima */
+.btn-contacto-flotante{
+  position: fixed;
+  bottom: 5.5em;
+  right: 2em;
+  z-index: 998;
+}
+/* Estilos, para ambos botones*/
+.btn-requisitos-flotante,
+.btn-contacto-flotante {
   display: flex;
   align-items: center;
   gap: 0.5em;
@@ -155,7 +166,8 @@
   letter-spacing: 0.02em;
 }
 
-.btn-requisitos-flotante:hover {
+.btn-requisitos-flotante:hover,
+.btn-contacto-flotante:hover {
   background: var(--color-secondary) !important;
   color: var(--color-text-white) !important;
   transform: translateY(-2px);
@@ -179,6 +191,10 @@
   font-size: 0.9em;
   letter-spacing: 0.02em;
 }
+
+
+
+
 
 
 /* ------------------------------------------

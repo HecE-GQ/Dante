@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/main.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/footer.css" />
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/preguntas.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/faq.css">
 </head>
-<bodyc class="is-preload">
+<body class="is-preload">
     <div id="page-wrapper">
         <?php include __DIR__ . '/../templates/header.php'; ?>
         
-        <h1>Preguntas Frecuentes</h1>
+        <main class="preguntas-main">
+            <h1>Preguntas Frecuentes</h1>
 
         <section class="faq-container">
 
@@ -28,7 +28,7 @@
                     ¿Dónde puedo revisar si estoy en esta etapa de cursos de capacitación?
                 </h3>
                 <p class="faq-text">
-                    Aquí va la respuesta correspondiente.
+                    Te debes dirigir con tu CMO o CMAO que corresponde a tu Centro de Trabajo, o bien consultar la página: <a href="http://calsdpcsep.mx ">http://calsdpcsep.mx </a>
                 </p>
                 <button class="faq-toggle">+</button>
             </div>
@@ -227,7 +227,7 @@
                 <button class="faq-toggle">+</button>
             </div>
         </section>
-
+    </main>
         <?php include __DIR__ .  '/../templates/footer.php'; ?>
     </div>
     <script src="<?= BASE_URL ?>assets/js/jquery.min.js"></script>

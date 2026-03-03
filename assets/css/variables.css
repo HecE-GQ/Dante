@@ -26,7 +26,7 @@
   --color-secondary:      #00589c;   /* Franja top del header */
   --color-primary-dark:   #003366;   /* Hover submenú / fondos oscuros */
   --color-primary-light:  #2a5298;   /* Variante clara si se necesita */
-  --color-primary-yellow: #e9b808;
+  --color-primary-yellow: #dfaf04;
   /* Acento */
   --color-accent:         #f5c518;   /* Amarillo hover nav */
   --color-accent-hover:   #e6b800;   /* Amarillo más oscuro al hacer hover sobre acento */
@@ -47,8 +47,8 @@
   --color-border:         #e0e0e0;
 
   /* Estados */
-  --color-link:           #37c0fb;
-  --color-link-hover:     #50c8fc;
+  --color-link:           #0d67bb;
+  --color-link-hover:     #1e4cc9;
 
   /* ------------------------------------------
      TIPOGRAFÍA

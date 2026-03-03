@@ -210,12 +210,33 @@ if (empty($curso)) {
       <span class="btn-req-texto">Requisitos</span>
     </button>
 
+              <!--Boton de creditos CUALQUIER SOLICITUD RESPECTO A LOS CURSOS, DEBERA ENVIAR CORRERO A LA CUENTA TAL TAL... -->
+      <button class="btn-contacto-flotante" onclick="abrirModalCreditos()"
+      title="Contacto y solicitudes"
+      aria-label="Contacto y solicitudes">
+      <span class="btn-req-icono">@</span>
+      <span class="btn-req-texto">Contacto</span>
+    </button>
+
+              <div id="modal-creditos" class="modal-overlay" aria-hidden="true">
+                  <div class="modal-box">
+                    <h2>Contacto y Solicitudes</h2>
+                    <p>Cualquier solicitud respecto a los cursos, deberá enviar correo a la cuenta:</p>
+                      <p class="modal-email">cursos.sep.unam@gmail.com</p>
+                      <p><strong>Indicando:</strong></p>
+                      <p><strong>Asunto:</strong>Escribe tu numero de folio SDPC (Indispensable para poderte atender)</p> 
+                      <p><strong>Contenido del mensaje:</strong> Deberia contener tu nombre completo posteriormente, el contenido de la solicitud</p> 
+                    <button class="btn-cerrar" onclick="cerrarModalCreditos()">Cerrar</button>
+                  </div>
+              </div>
+
   </div><!-- /page-wrapper -->
   
               <!--  * El modelo usa fetchAll() → devuelve array de arrays
                         * Por eso se necesita foreach para iterar cada fila. 
                         * nl2br() convierte los saltos de línea \n del texto de la BD en <br> para preservar la jerarquía visual (1.1, 1.1.1, 1.2, etc.)
            * htmlspecialchars() sanitiza contra inyección XSS antes de imprimir.-->
+
   <script src="<?= BASE_URL ?>assets/js/jquery.min.js"></script>
   <script src="<?= BASE_URL ?>assets/js/app.js"></script>
 </body>

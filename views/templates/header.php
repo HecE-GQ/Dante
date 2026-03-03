@@ -27,7 +27,7 @@
 			</button>
 
 			<ul>
-				<li class="current"><a href="<?= BASE_URL ?>">Inicio</a></li>
+				<li><a href="<?= BASE_URL ?>">Inicio</a></li>
 				<li><a href="<?= BASE_URL ?>index.php?page=cursos">Cursos</a></li>
 				<li><a href="https://calsdpc.sep.gob.mx/">Convocatoria SIDEPAAE</a></li>
 				<li><a href="<?= BASE_URL ?>index.php?page=nosotros">Nosotros</a></li>

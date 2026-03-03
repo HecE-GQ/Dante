@@ -136,15 +136,15 @@
    ------------------------------------------ */
 
 .footer-bottom {
-  background: rgba(0,0,0,0.2);
+  background: var(--color-secondary);
   padding: 1.2em 0;
   text-align: center;
 }
 
 .footer-bottom p {
   font-size: 0.72em;
-  color: rgba(255,255,255,0.8);
-  max-width: 900px;
+  color: var(--color-text-white);
+  max-width: 1000px;
   margin: 0 auto;
   line-height: 1.6;
 }

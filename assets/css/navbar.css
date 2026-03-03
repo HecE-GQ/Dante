@@ -115,16 +115,12 @@
 
 /* Hover — píldora amarilla */
 #nav > div > ul > li > a:hover {
-  color: var(--color-primary);
+  color: var(--color-text-white);
   background: var(--color-accent);
   border-radius: var(--radius-pill);
 }
 
-/* Estado current — sin línea, sin fondo persistente */
-#nav > div > ul > li.current > a {
-  color: var(--color-text-white);
-  border-bottom: none;
-}
+
 
 /* ------------------------------------------
    SUBMENÚ CSS PURO

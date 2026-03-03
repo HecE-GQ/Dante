@@ -1090,7 +1090,9 @@ button:hover,
 
 .dropotron > li.active > a,
 
-.dropotron > li:hover > a { color: var(--color-text-white); }
+
+
+
 
 
 .dropotron.level-0 {
@@ -1213,7 +1215,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* =====================================================

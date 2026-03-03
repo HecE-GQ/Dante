@@ -9,6 +9,7 @@
   - Modal de requisitos
   - Nav móvil hamburger
   - Animaciones de carga
+  - Acordeon para la seccion de preguntas frecuentes 
 
   Depende de: jquery.min.js
   ================================================
@@ -16,11 +17,11 @@
 
 (function ($) {
 
-  /* ------------------------------------------
+  /* 
      1. ANIMACIÓN DE CARGA
      Quita la clase is-preload del body para
      activar las animaciones CSS al cargar.
-     ------------------------------------------ */
+    */
 
   $(window).on('load', function () {
     setTimeout(function () {
@@ -29,11 +30,11 @@
   });
 
 
-  /* ------------------------------------------
+  /* 
      2. STICKY NAV
      El navbar se fija al top cuando el usuario
      hace scroll más allá del header.
-     ------------------------------------------ */
+*/
 
   var $nav        = $('#nav');
   var $pageWrap   = $('#page-wrapper');
@@ -58,11 +59,11 @@
   }
 
 
-  /* ------------------------------------------
+  /* 
      3. NAV MÓVIL — HAMBURGER
      Muestra/oculta el menú en pantallas
      pequeñas al hacer click en el toggle.
-     ------------------------------------------ */
+     */
 
   $('.nav-toggle').on('click', function () {
     $('#nav > div > ul').toggleClass('open');
@@ -76,12 +77,12 @@
   });
 
 
-  /* ------------------------------------------
+  /* 
      4. MODAL DE REQUISITOS
      Se abre automáticamente al cargar páginas
      de curso. Se cierra con el botón o con
      click fuera del modal.
-     ------------------------------------------ */
+    */
 
   function abrirModal() {
     var $modal = $('#modal-requisitos');
@@ -120,27 +121,11 @@
   });
 
 
-  /* ------------------------------------------
-     5. NAV — ESTADO CURRENT DINÁMICO
-     Evita que el link quede "seleccionado"
-     de forma persistente al navegar.
-     ------------------------------------------ */
 
-  var currentPage = window.location.pathname.split('/').pop();
-
-  $('#nav > div > ul > li > a').each(function () {
-    var linkPage = $(this).attr('href').split('/').pop();
-    if (linkPage === currentPage) {
-      $(this).parent().addClass('current');
-    } else {
-      $(this).parent().removeClass('current');
-    }
-  });
-
-  /* ------------------------------------------
+  /* 
    6. FAQ — ACORDEÓN
    Compatible con estructura actual
------------------------------------------- */
+*/
 
 function initFAQ() {
 
@@ -191,6 +176,38 @@ function initFAQ() {
 }
 
 initFAQ();
+
+/* MODAL DE CREDITOS */
+function abrirModalCreditos(){
+    var $modal = $('#modal-creditos');
+    if($modal.length){
+        $modal.addClass('activo');
+        //Accesibilidad 
+        $modal.attr('aria-hidden', 'false');
+        $('.btn-cerrar').focus();
+    }
+}
+
+function cerrarModalCreditos(){
+    var $modal = $('#modal-creditos');
+    $modal.removeClass('activo');
+    $modal.attr('aria-hidden', 'true');
+}
+
+window.cerrarModalCreditos = cerrarModalCreditos;
+
+window.abrirModalCreditos = abrirModalCreditos;
+
+// Cerrar con tecla escape 
+$(document).on('keydown', function (e){
+   if(e.key === 'Escape'){
+    if($('#modal-requisitos').hasClass('activo')) cerrarModal();
+    if($('#modal-creditos').hasClass('activo')) cerrarModalCreditos();
+       cerrarModalCreditos();
+   } 
+});
+
+
 
 
 

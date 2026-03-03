@@ -1,16 +1,57 @@
+/*
+  ================================================
+  DGTIC - UNAM
+  faq.css
 
-h1{
-    text-align: center;
-    color: #e9b808;
-}
+  Estilos para la pagina de Preguntas Frecuentes.
+  Depende de: variables.css
+  ================================================
+*/
+
 /* ==========================================
-   CONTENEDOR GENERAL (IMPORTANTE)
+   LAYOUT GENERAL
 ========================================== */
 
-section {
-  max-width: 900px;   /* Limita el ancho */
-  margin: 0 auto;     /* Centra */
-  padding: 0 1rem;    /* Respira en móvil */
+.preguntas-main {
+  padding: 3em 0 5em 0;
+  background: var(--color-bg-page);
+}
+
+/* ==========================================
+   TITULO PRINCIPAL
+========================================== */
+
+.preguntas-main h1 {
+  text-align: center;
+  color: var(--color-accent);
+  font-size: 32px;
+  font-weight: var(--font-weight-bold);
+  margin: 2em auto 1.5em auto;
+  max-width: 70%;
+  padding: 0 1rem;
+}
+
+/* ==========================================
+   CONTENEDOR FAQ
+========================================== */
+
+.faq-container {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ==========================================
+   TITULO DE SECCION
+========================================== */
+
+.faq-section-title {
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--color-accent);
+  margin: 2.5rem 0 1rem 0;
 }
 
 /* ==========================================
@@ -21,36 +62,38 @@ section {
   position: relative;
   padding: 1.2rem 3rem 1.2rem 1.5rem;
   margin-bottom: 0.8rem;
-  background: #ffffff;
-  border-radius: 8px;
-  border: 1px solid #e5e5e5;
-  transition: all 0.2s ease;
+  background: var(--color-bg-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
-/* Hover elegante */
 .faq:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 65, 121, 0.08);
+  border-color: var(--color-primary);
 }
 
-/* ----------------------------------
-   TITULO
----------------------------------- */
+/* ==========================================
+   TITULO DEL FAQ
+========================================== */
 
 .faq-title {
   margin: 0;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-body);
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
+  padding-right: 1rem;
 }
 
 .faq.active .faq-title {
-  color: #003366;
+  color: var(--color-primary);
 }
 
-/* ----------------------------------
-   BOTÓN +
----------------------------------- */
+/* ==========================================
+   BOTON TOGGLE
+========================================== */
 
 .faq-toggle {
   position: absolute;
@@ -60,50 +103,83 @@ section {
   width: 28px;
   height: 28px;
   border: none;
-  background: #003366;
-  color: #fff;
+  background: var(--color-primary);
+  background-image: none;
+  color: var(--color-text-white);
   font-size: 1rem;
-  font-weight: bold;
-  border-radius: 50%;
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-circle);
   cursor: pointer;
-  transition: transform 0.25s ease, background 0.2s ease;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+  min-width: unset;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .faq-toggle:hover {
-  background: #002244;
+  background: var(--color-secondary) !important;
+  color: var(--color-text-white) !important;
 }
 
 .faq.active .faq-toggle {
   transform: translateY(-50%) rotate(180deg);
+  background: var(--color-accent);
+  color: var(--color-primary);
 }
 
-/* ----------------------------------
+/* ==========================================
    RESPUESTA
----------------------------------- */
+========================================== */
 
 .faq-text {
+  display: none;
   margin-top: 0.8rem;
-  line-height: 1.6;
-  font-size: 0.95rem;
-  color: #444;
+  line-height: 1.7;
+  font-size: 14px;
+  color: var(--color-text-body);
+}
+
+.faq.active .faq-text {
+  display: block;
 }
 
 .faq-text img {
   max-width: 100%;
   height: auto;
   margin-top: 0.5rem;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
 }
 
-/* ----------------------------------
-   SECCIONES
----------------------------------- */
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
-.faq-section-title {
-  max-width: 900px;
-  margin: 2.5rem auto 1rem auto;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #003366;
-  padding-left: 0.5rem;
+@media screen and (max-width: 900px) {
+  .faq-container,
+  .preguntas-main h1 {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .faq-container,
+  .preguntas-main h1 {
+    max-width: 95%;
+    padding: 0 0.75rem;
+  }
+
+  .preguntas-main h1 {
+    font-size: 24px;
+    margin: 1.5em auto 1em auto;
+  }
+
+  .faq-section-title {
+    font-size: 17px;
+  }
+
+  .faq-title {
+    font-size: 15px;
+  }
 }
