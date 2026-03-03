@@ -10,6 +10,13 @@ class Curso {
         $this->db = Database::getConnection();
     }
 
+    //Conteo de cursos activos 
+    public function contarCursos(): int {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM cursos WHERE activo = 1");
+        $stmt->execute();
+        return (int) $stmt->fetchColumn();
+    }
+
     //Obtener todos los cursos activos 
 
     public function getAll(): array{

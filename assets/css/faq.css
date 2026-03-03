@@ -23,7 +23,7 @@
 
 .preguntas-main h1 {
   text-align: center;
-  color: var(--color-accent);
+  color: var(--color-primary);
   font-size: 32px;
   font-weight: var(--font-weight-bold);
   margin: 2em auto 1.5em auto;

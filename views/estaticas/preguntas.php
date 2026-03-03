@@ -16,7 +16,7 @@
         <?php include __DIR__ . '/../templates/header.php'; ?>
         
         <main class="preguntas-main">
-            <h1>Preguntas Frecuentes</h1>
+            <h1>PREGUNTAS FRECUENTES</h1>
 
         <section class="faq-container">
 

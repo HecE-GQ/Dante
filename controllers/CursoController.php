@@ -11,6 +11,11 @@ class CursoController{
         $this->model = new Curso();
     }
 
+    //Conteo de cursos activos
+    public function contarCursos(): int{
+        return $this->model->contarCursos();
+    } 
+
     //Lista de cursos ç
     public function index(): array {
         $cursos = $this->model->getAll();

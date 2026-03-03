@@ -5,20 +5,21 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html lang="es">
+
 <head>
 	<title>Dante DGTIC</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="<?=BASE_URL?>assets/css/main.css" />
-	<link rel="stylesheet" href="<?=BASE_URL?>assets/css/navbar.css">
-	<link rel="stylesheet" href="<?=BASE_URL?>assets/css/variables.css">
-	<link rel="stylesheet" href="<?=BASE_URL?>assets/css/footer.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/main.css" />
+	<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/variables.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/footer.css">
 </head>
 
 <body class="is-preload">
 	<div id="page-wrapper">
 
-	<?php include __DIR__ . '/templates/header.php'?>
+		<?php include __DIR__ . '/templates/header.php' ?>
 
 		<!-- Header 
 		<header id="site-header">
@@ -56,56 +57,120 @@
 
 		<!-- Banner -->
 		<section id="banner">
-			<header>
-				<h2>BIENVENIDO A LA DGTIC</h2> <!--tIENE QUE IR CENTRADO -->
-			</header>
-		</section>
-
-
-		<!-- Gigantic Heading -->
-		<section class="wrapper style2">
-			<div class="container">
-				<header class="major">
-					<h2>A gigantic heading you can use for whatever</h2>
-					<p>With a much smaller subtitle hanging out just below it</p>
-				</header>
+			<div class="banner-content">
+				<h1 class="banner-titulo">Capacitación TIC para trabajadores del SPDC</h1>
+				<p class="banner-subtitulo">
+					En colaboración con el Sindicato de Trabajadores de la SEP,
+					la DGTIC UNAM pone a tu disposición cursos en línea
+					para tu desarrollo profesional.
+				</p>
+				<a href="<?= BASE_URL ?>index.php?page=cursos" class="banner-btn">
+					Ver cursos disponibles
+				</a>
 			</div>
 		</section>
-		<!-- Highlights -->
+
+
+
+
 		<section class="wrapper style1">
 			<div class="container">
 				<div class="row gtr-200">
+
+					<!-- Card 1 — Cursos SPDC -->
 					<section class="col-4 col-12-narrower">
 						<div class="box highlight">
-							<i class="icon solid major fa-paper-plane"></i>
-							<h3>This Is Important</h3>
-							<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a
-								rutrum accumsan sed. Suspendisse eu.</p>
+							<i class="icon solid major fa-laptop"></i>
+							<h3>Cursos para trabajadores SPDC</h3>
+							<p>
+								Contamos con variedad de cursos disponibles para tu desarrollo profesional
+								en Tecnologías de la Información.
+							</p>
+							<a href="<?= BASE_URL ?>index.php?page=cursos" class="button">Ver cursos</a>
 						</div>
 					</section>
+
+					<!-- Card 2 — Convocatoria SPDC -->
 					<section class="col-4 col-12-narrower">
 						<div class="box highlight">
-							<i class="icon solid major fa-pencil-alt"></i>
-							<h3>Also Important</h3>
-							<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a
-								rutrum accumsan sed. Suspendisse eu.</p>
+							<i class="icon solid major fa-file-alt"></i>
+							<h3>Convocatoria SPDC</h3>
+							<p>
+								Consulta si estás en etapa de capacitación y revisa
+								la convocatoria vigente en el SIDEPAAE.
+							</p>
+							<a href="https://calsdpc.sep.gob.mx/" target="_blank" rel="noopener" class="button">
+								Ir al SIDEPAAE
+							</a>
 						</div>
 					</section>
+
+					<!-- Card 3 — Oferta general -->
 					<section class="col-4 col-12-narrower">
 						<div class="box highlight">
-							<i class="icon solid major fa-wrench"></i>
-							<h3>Probably Important</h3>
-							<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a
-								rutrum accumsan sed. Suspendisse eu.</p>
+							<i class="icon solid major fa-graduation-cap"></i>
+							<h3>Oferta académica general</h3>
+							<p>
+								Más de 120 cursos, talleres y 12 diplomados de alto nivel
+								para el público en general.
+							</p>
+							<a href="https://docencia.tic.unam.mx/wordpress/" target="_blank" rel="noopener" class="button">
+								Visitar DGTIC
+							</a>
 						</div>
 					</section>
+
 				</div>
 			</div>
 		</section>
 
-	<?php include __DIR__ . '/templates/footer.php'?>
+		<!-- QUIÉNES SOMOS — texto institucional breve-->
+		<section class="wrapper style2">
+			<div class="container">
+				<header class="major">
+					<h2>¿Quiénes somos?</h2>
+					<p>Parte de la DGTIC de la Universidad Nacional Autónoma de México</p>
+				</header>
+				<div class="inicio-institucional">
+					<p>
+						La Dirección de Docencia forma parte de la Dirección General de Cómputo y de
+						Tecnologías de Información y Comunicación (DGTIC) de la UNAM. Nos dedicamos a
+						satisfacer las necesidades de capacitación en TIC de una amplia gama de
+						participantes: niños, adultos mayores, estudiantes, profesionistas y trabajadores.
+					</p>
+					<p>
+						Establecemos colaboraciones estratégicas con organizaciones líderes como
+						Huawei® y Google®, y formamos parte de la Red de Educación Continua
+						y a Distancia de la UNAM (REDEC).
+					</p>
+					<a href="<?= BASE_URL ?>index.php?page=nosotros" class="button">Conócenos</a>
+				</div>
+			</div>
+		</section>
 
-<!-- <footer id="footer">
+		<!--CONVOCATORIA SPDC — bloque destacado -->
+		<section class="inicio-spdc">
+			<div class="container">
+				<div class="spdc-inner">
+					<div class="spdc-texto">
+						<h2>¿Eres trabajador del SPDC?</h2>
+						<p>
+							Consulta la convocatoria vigente y verifica si estás
+							en etapa de capacitación. Accede al sistema SIDEPAAE
+							para más información.
+						</p>
+					</div>
+					<a href="https://calsdpc.sep.gob.mx/" target="_blank" rel="noopener" class="button">
+						Ir a la convocatoria
+					</a>
+				</div>
+			</div>
+		</section>
+
+
+		<?php include __DIR__ . '/templates/footer.php' ?>
+
+		<!-- <footer id="footer">
   <div class="footer-main">
     <div class="container footer-inner">
 
@@ -154,9 +219,9 @@
 </footer> -->
 
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/app.js"></script>
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/app.js"></script>
 </body>
 
 </html>
