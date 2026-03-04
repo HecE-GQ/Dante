@@ -142,7 +142,7 @@ $cursos = $controller->index();
 </footer> -->
 
 </div>
-<script src="<?=BASE_URL?>assets/js/jquery.min.js"></script>
-<Script src="<?=BASE_URL?>assets/js/app.js"></script>
+
+<Script src="<?=BASE_URL?>assets/js/app1.js"></script>
 </body>
 </html>

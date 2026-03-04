@@ -152,6 +152,16 @@
   border-radius: var(--radius-md);
 }
 
+
+/* Animacion */
+.faq-text{
+  display: none;
+}
+
+.faq.active .faq-text{
+  display: block;
+}
+
 /* ==========================================
    RESPONSIVE
 ========================================== */

@@ -237,8 +237,8 @@ if (empty($curso)) {
                         * nl2br() convierte los saltos de línea \n del texto de la BD en <br> para preservar la jerarquía visual (1.1, 1.1.1, 1.2, etc.)
            * htmlspecialchars() sanitiza contra inyección XSS antes de imprimir.-->
 
-  <script src="<?= BASE_URL ?>assets/js/jquery.min.js"></script>
-  <script src="<?= BASE_URL ?>assets/js/app.js"></script>
+  
+  <script src="<?= BASE_URL ?>assets/js/app1.js"></script>
 </body>
 
 </html>

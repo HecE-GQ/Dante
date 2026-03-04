@@ -230,8 +230,8 @@
     </main>
         <?php include __DIR__ .  '/../templates/footer.php'; ?>
     </div>
-    <script src="<?= BASE_URL ?>assets/js/jquery.min.js"></script>
-    <script src="<?= BASE_URL ?>assets/js/app.js"></script>
+    
+    <script src="<?= BASE_URL ?>assets/js/app1.js"></script>
     </body>
 
 </html>
