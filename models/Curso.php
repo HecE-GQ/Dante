@@ -28,7 +28,7 @@ class Curso {
             ORDER BY nombre ASC"
         );
         return $stmt->fetchAll();
-       }catch(PDOException $e){
+       }catch(\PDOException $e){
             error_log("[Curso::getAll] " . $e->getMessage());
             return [];
        }
@@ -83,7 +83,7 @@ class Curso {
 
         return $curso;
         
-        }catch(PDOException $e){
+        }catch(\PDOException $e){
             error_log("[Curso::getById]" . $e->getMessage());
             return [];
         }
