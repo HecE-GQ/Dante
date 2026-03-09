@@ -42,6 +42,7 @@
   --color-bg-page:        #f7f7f7;   /* Fondo general */
   --color-bg-white:       #ffffff;
   --color-bg-card:        #ffffff;
+  --color-bg-secondary:   #f6f3ed;
 
   /* Bordes */
   --color-border:         #e0e0e0;
@@ -59,12 +60,13 @@
   --font-weight-regular:  400;
   --font-weight-bold:     600;
 
-  --font-size-base:       16px;
-  --font-size-sm:         0.85em;
-  --font-size-xs:         0.75em;
-  --font-size-lg:         1.25em;
-  --font-size-xl:         1.75em;
-  --font-size-xxl:        2.25em;
+  --font-size-base: 22px;
+--font-size-sm:   0.9em;
+--font-size-xs:   0.8em;
+--font-size-lg:   1.5em;
+--font-size-xl:   2.15em;
+--font-size-xxl:  3em;
+
 
   --line-height-base:     1.6;
   --line-height-tight:    1.3;

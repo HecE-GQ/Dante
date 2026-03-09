@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css">
 	<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/variables.css">
 	<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/footer.css">
+	<link rel="stylesheet" href="<?= BASE_URL ?>assets/css/inicio.css">
 </head>
 
 <body class="is-preload">

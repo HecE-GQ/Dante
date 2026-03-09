@@ -1,0 +1,273 @@
+/*
+  ================================================
+  DGTIC - UNAM
+  inicio.css
+
+  Estilos propios de la página de inicio.
+  Complementa main.css, navbar.css y footer.css.
+  Depende de: variables.css
+  ================================================
+*/
+
+/* ==========================================
+   BANNER
+========================================== */
+
+#banner {
+  position: relative;
+}
+
+/* Overlay oscuro sobre la imagen para legibilidad */
+#banner::before {
+  content: '';
+  position: absolute;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 en una sola línea */
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2; /* encima del overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4em 2em;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner-titulo {
+  font-size: 38px;
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  margin-bottom: 0.5em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  line-height: 1.2;
+}
+
+.banner-subtitulo {
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.75;
+  margin-bottom: 1.5em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.banner-btn {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-text-white);
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  padding: 0.75em 2em;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+
+/* ==========================================
+   CARDS — HIGHLIGHTS
+   Sobreescribe estilos del template para
+   seguir la línea de diseño del proyecto
+========================================== */
+
+.wrapper.style1 {
+  background: var(--color-bg-secondary);
+}
+
+.box.highlight {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 12px rgba(0, 65, 121, 0.07);
+  padding: 2em 1.5em;
+  text-align: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.box.highlight:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 65, 121, 0.14);
+}
+
+.box.highlight .icon.major {
+  background: var(--color-primary);
+  color: #ffffff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 1em auto;
+}
+
+.box.highlight h3 {
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: 0.6em;
+}
+
+.box.highlight p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--color-text-body);
+  margin-bottom: 1.25em;
+}
+
+.box.highlight .button {
+  display: inline-block;
+  background: var(--color-primary);
+  background-image: none;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
+  padding: 0.6em 1.5em;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: none;
+  transition: background var(--transition-fast);
+}
+
+.box.highlight .button:hover {
+  background: var(--color-secondary) !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================
+   QUIÉNES SOMOS
+========================================== */
+
+.wrapper.style2 {
+  background: var(--color-bg-white);
+}
+
+.wrapper.style2 header.major h2 {
+  font-size: 26px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.wrapper.style2 header.major p {
+  text-align: center;
+  font-size: 15px;
+  color: var(--color-text-muted);
+  top: 0;
+}
+
+.inicio-institucional {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.inicio-institucional p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-text-body);
+  margin-bottom: 1em;
+}
+
+.inicio-institucional .button {
+  display: inline-block;
+  background: var(--color-primary);
+  background-image: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  padding: 0.75em 2em;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: none;
+  margin-top: 0.5em;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.inicio-institucional .button:hover {
+  background: var(--color-secondary) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   BLOQUE SPDC — call to action
+========================================== */
+
+.inicio-spdc {
+  background: var(--color-bg-secondary); /* gris claro en lugar de azul */
+  padding: 4em 2em;
+  border-top: 3px solid var(--color-accent); /* línea amarilla arriba para separarlo */
+}
+
+.spdc-texto h2 {
+  font-size: 26px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary); /* azul en lugar de blanco */
+  margin-bottom: 0.5em;
+}
+
+.spdc-texto p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--color-text-body); /* texto normal */
+  margin: 0;
+}
+
+.inicio-spdc .button {
+  display: inline-block;
+  background: var(--color-primary);
+  background-image: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  padding: 0.85em 2em;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.inicio-spdc .button:hover {
+  background: var(--color-secondary) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media screen and (max-width: 900px) {
+  .banner-titulo {
+    font-size: 26px;
+  }
+
+  .spdc-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .banner-titulo {
+    font-size: 22px;
+  }
+
+  .banner-subtitulo {
+    font-size: 14px;
+  }
+
+  .inicio-institucional {
+    padding: 0 1em;
+  }
+}
