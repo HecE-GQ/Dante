@@ -143,6 +143,6 @@ $cursos = $controller->index();
 
 </div>
 
-<Script src="<?=BASE_URL?>assets/js/app1.js"></script>
+<Script src="<?=BASE_URL?>assets/js/app.js"></script>
 </body>
 </html>

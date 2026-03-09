@@ -127,7 +127,7 @@
 
     </div>
    
-    <script src="<?= BASE_URL ?>assets/js/app1.js"></script>
+    <script src="<?= BASE_URL ?>assets/js/app.js"></script>
 </body>
 
 </html>

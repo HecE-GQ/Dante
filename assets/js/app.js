@@ -1,214 +1,201 @@
-/*
-  ================================================
-  DGTIC - UNAM
+/* 
+DGTIC - UNAM
   app.js
 
   Punto de entrada único de JavaScript.
   Centraliza toda la lógica del sitio:
   - Sticky nav
   - Modal de requisitos
+  - Modal de creditos
   - Nav móvil hamburger
   - Animaciones de carga
   - Acordeon para la seccion de preguntas frecuentes 
 
-  Depende de: jquery.min.js
-  ================================================
-*/
-
-(function ($) {
+  *Antes dependia de jquery, se hizo refactor para mejora de rendiomiento y menos consumo de recursos
+ ------------------------------------------------------------------------------------------------ */
 
   /* 
-     1. ANIMACIÓN DE CARGA
-     Quita la clase is-preload del body para
-     activar las animaciones CSS al cargar.
-    */
-
-  $(window).on('load', function () {
-    setTimeout(function () {
-      $('body').removeClass('is-preload');
+  1.- ANIMACION DE CARGA 
+  Quita pre-load del body para activar las animaciones de css
+  */
+ window.addEventListener('load', function(){
+    setTimeout(function(){
+        document.body.classList.remove('is-preload');
     }, 100);
-  });
+ });
 
 
-  /* 
-     2. STICKY NAV
-     El navbar se fija al top cuando el usuario
-     hace scroll más allá del header.
-*/
+ /* 
+ 2.- Sticky NAV 
+ El navbar se fija al top cuando el usuario haga scroll mas allá del header 
+ */
 
-  var $nav        = $('#nav');
-  var $pageWrap   = $('#page-wrapper');
+ const nav = document.getElementById('nav');
+ const pageWrapp = document.getElementById('page-wrapper');
+ 
+ function initStickyNav(){
+        const headerMain = document.querySelector('.header-main');
+        const headerFranja = document.querySelector('.header-franja-top');
 
-  function initStickyNav() {
-    var headerHeight = $('.header-main').outerHeight()
-                     + $('.header-franja-top').outerHeight();
+        if(!headerMain || !headerFranja) return;
 
-    $(window).on('scroll.sticky', function () {
-      if ($(window).scrollTop() >= headerHeight) {
-        $nav.addClass('sticky');
-        $pageWrap.addClass('nav-sticky');
-      } else {
-        $nav.removeClass('sticky');
-        $pageWrap.removeClass('nav-sticky');
-      }
-    });
-  }
+        const headerHeight = headerMain.offsetHeight + headerFranja.offsetHeight;
 
-  if ($nav.length) {
+        window.addEventListener('scroll', function(){
+            if(window.scrollY >= headerHeight){
+                nav.classList.add('sticky');
+                pageWrapp.classList.add('nav-sticky');
+            }else{
+                nav.classList.remove('sticky');
+                pageWrapp.classList.remove('nav-sticky');
+            }
+        });
+ }
+
+ if(nav){
     initStickyNav();
-  }
+ }
 
+ /*
+ 3.- NAV HAMBURGUESA 
+ Muestra/oculta el menu en pantallas pequeñas al hacer click en el toggle  
+ */
+ const navToggle = document.querySelector('.nav-toggle');
+ const navMenu = document.querySelector('#nav > div > ul');
 
-  /* 
-     3. NAV MÓVIL — HAMBURGER
-     Muestra/oculta el menú en pantallas
-     pequeñas al hacer click en el toggle.
-     */
+ if(navToggle && navMenu){
+    navToggle.addEventListener('click', function(){
+        navMenu.classList.remove('open');
+    });
+ }
 
-  $('.nav-toggle').on('click', function () {
-    $('#nav > div > ul').toggleClass('open');
-  });
-
-  // Cerrar menú móvil al hacer click fuera
-  $(document).on('click', function (e) {
-    if (!$(e.target).closest('#nav').length) {
-      $('#nav > div > ul').removeClass('open');
+ //Cerrar menu al hacer click afuera 
+ document.addEventListener('click', function(e){
+    if(nav && !nav.contains(e.target)&& navMenu){
+        navMenu.classList.remove('open');
     }
-  });
+ });
 
 
-  /* 
-     4. MODAL DE REQUISITOS
-     Se abre automáticamente al cargar páginas
-     de curso. Se cierra con el botón o con
-     click fuera del modal.
-    */
+ /* 
+ 4.- Modal de requisitos
+ Se abre con boton flotante y se cierra con el boton o click fuera
+ */
 
-  function abrirModal() {
-    var $modal = $('#modal-requisitos');
-    if ($modal.length) {
-      $modal.addClass('activo');
-      // Accesibilidad: foco al modal
-      $modal.attr('aria-hidden', 'false');
-      $('.btn-cerrar').focus();
-    }
-  }
-
-  function cerrarModal() {
-    var $modal = $('#modal-requisitos');
-    $modal.removeClass('activo');
-    $modal.attr('aria-hidden', 'true');
-  }
-
-  // Exponer cerrarModal globalmente para el onclick del HTML
-  window.cerrarModal = cerrarModal;
-
- //Exponer abriModal globalmente para el click del boton
- window.abrirModal = abrirModal;
-
-  // Cerrar al hacer click en el overlay (fuera del modal-box)
-  $('#modal-requisitos').on('click', function (e) {
-    if ($(e.target).is('#modal-requisitos')) {
-      cerrarModal();
-    }
-  });
-
-  // Cerrar con tecla Escape
-  $(document).on('keydown', function (e) {
-    if (e.key === 'Escape') {
-      cerrarModal();
-    }
-  });
-
-
-
-  /* 
-   6. FAQ — ACORDEÓN
-   Compatible con estructura actual
-*/
-
-function initFAQ() {
-
-  var $faqs = $('.faq');
-  if (!$faqs.length) return;
-
-  // Ocultar todas las respuestas al iniciar
-  $('.faq-text').hide();
-
-  $('.faq-toggle, .faq-title').on('click', function () {
-
-    var $currentFaq = $(this).closest('.faq');
-
-    // Cerrar todos los demás
-    $faqs.not($currentFaq)
-      .removeClass('active')
-      .find('.faq-text')
-      .stop(true, true)
-      .slideUp(200);
-
-    $faqs.not($currentFaq)
-      .find('.faq-toggle')
-      .text('+');
-
-    // Alternar actual
-    if ($currentFaq.hasClass('active')) {
-
-      $currentFaq.removeClass('active');
-      $currentFaq.find('.faq-text')
-        .stop(true, true)
-        .slideUp(200);
-
-      $currentFaq.find('.faq-toggle').text('+');
-
-    } else {
-
-      $currentFaq.addClass('active');
-      $currentFaq.find('.faq-text')
-        .stop(true, true)
-        .slideDown(200);
-
-      $currentFaq.find('.faq-toggle').text('−');
-
-    }
-
-  });
-
+ function abrirModal(){
+    const modal = document.getElementById('modal-requisitos');
+    if(!modal) return;
+    modal.classList.add('activo');
+    modal.setAttribute('aria-hidden', 'false');
+    const btnCerrar = modal.querySelector('.btn-cerrar');
+    if(btnCerrar) btnCerrar.focus();
+ }
+function cerrarModal(){
+    const modal = document.getElementById('modal-requisitos');
+    if(!modal) return;
+    modal.classList.remove('activo');
+    modal.setAttribute('aria-hidden', 'true');
 }
 
-initFAQ();
+window.abrirModal = abrirModal;
+window.cerrarModal = cerrarModal;
 
-/* MODAL DE CREDITOS */
+// Cerrar al dar click en el overlay 
+
+const modalRequisitos = document.getElementById('modal-requisitos');
+if(modalRequisitos){
+    modalRequisitos.addEventListener('click', function(e){
+        if(e.target === modalRequisitos) cerrarModal();
+    });
+}
+
+
+/*
+5.- Modal Creditos
+Se abre con el boton 'contacto'
+Se cierra con click en el boton o fuera
+*/
+
 function abrirModalCreditos(){
-    var $modal = $('#modal-creditos');
-    if($modal.length){
-        $modal.addClass('activo');
-        //Accesibilidad 
-        $modal.attr('aria-hidden', 'false');
-        $('.btn-cerrar').focus();
-    }
+    const modal = document.getElementById('modal-creditos');
+    if(!modal) return;
+    modal.classList.add('activo');
+    modal.setAttribute('aria-hidden', 'false');
+    const btnCerrar = modal.querySelector('.btn-cerrar');
+    if(btnCerrar) btnCerrar.focus(); 
 }
 
 function cerrarModalCreditos(){
-    var $modal = $('#modal-creditos');
-    $modal.removeClass('activo');
-    $modal.attr('aria-hidden', 'true');
+    const modal = document.getElementById('modal-creditos');
+    if(!modal) return;
+    modal.classList.remove('activo');
+    modal.setAttribute('aria-hidden', 'true');
 }
 
+window.abrirModalCreditos = abrirModalCreditos;
 window.cerrarModalCreditos = cerrarModalCreditos;
 
-window.abrirModalCreditos = abrirModalCreditos;
 
-// Cerrar con tecla escape 
-$(document).on('keydown', function (e){
-   if(e.key === 'Escape'){
-    if($('#modal-requisitos').hasClass('activo')) cerrarModal();
-    if($('#modal-creditos').hasClass('activo')) cerrarModalCreditos();
-       cerrarModalCreditos();
-   } 
+// Cerrar al hacer click en el overlay 
+const modalCreditos = document.getElementById('modal-creditos');
+if(modalCreditos){
+    modalCreditos.addEventListener('click', function(e){
+        if(e.target === modalCreditos) cerrarModalCreditos();
+    });
+}
+
+
+/* -----------------------
+Tecla de escape para cerrar cualquier modal
+---------------*/
+
+document.addEventListener('keydown', function(e){
+    if(e.key !== 'Escape') return;
+    if(modalRequisitos && modalRequisitos.classList.contains('activo')) cerrarModal();
+    if(modalCreditos && modalCreditos.classList.contains('activo')) cerrarModalCreditos();
 });
 
 
+/* FAQ Acordeon para la seccion preguntas frecuentes */
+function initFaq(){
+    const faqs = document.querySelectorAll('.faq');
+    if(!faqs.length) return;
+
+    faqs.forEach(function (faq){
+        const toggle = faq.querySelector('.faq-toggle');
+        const titulo = faq.querySelector('.faq-title');
+
+        function handleClick() {
+  const isActive = faq.classList.contains('active');
+  const texto = faq.querySelector('.faq-text');
+  const toggle = faq.querySelector('.faq-toggle');
+
+  // Cerrar todos los demás
+  faqs.forEach(function (otroFaq) {
+    if (otroFaq === faq) return;
+    otroFaq.classList.remove('active');
+    const otroToggle = otroFaq.querySelector('.faq-toggle');
+    if (otroToggle) otroToggle.textContent = '+';
+  });
+
+  // Alternar el actual
+  if (isActive) {
+    faq.classList.remove('active');
+    if (toggle) toggle.textContent = '+';
+  } else {
+    faq.classList.add('active');
+    if (toggle) toggle.textContent = '−';
+  }
+}
 
 
+        if(toggle) toggle.addEventListener('click', handleClick);
+        if(titulo) titulo.addEventListener('click', handleClick);
+    });
 
-})(jQuery); 
+    
+
+}
+
+
+initFaq();
