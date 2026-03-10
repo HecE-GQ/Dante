@@ -224,7 +224,7 @@ if (empty($curso)) {
                     <p>Cualquier solicitud respecto a los cursos, deberá enviar correo a la cuenta:</p>
                       <p class="modal-email">cursos.sep.unam@gmail.com</p>
                       <p><strong>Indicando:</strong></p>
-                      <p><strong>Asunto:</strong>Escribe tu numero de folio SDPC (Indispensable para poderte atender)</p> 
+                      <p><strong>Asunto:</strong> Escribe tu numero de folio SDPC (Indispensable para poderte atender)</p> 
                       <p><strong>Contenido del mensaje:</strong> Deberia contener tu nombre completo posteriormente, el contenido de la solicitud</p> 
                     <button class="btn-cerrar" onclick="cerrarModalCreditos()">Cerrar</button>
                   </div>

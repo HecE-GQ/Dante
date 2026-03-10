@@ -130,7 +130,7 @@
 .curso-card-nombre {
   font-size: 0.85em;
   font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
+  color: var(--color-text-body);
   margin: 0;
   line-height: 1.35;
 }

@@ -65,7 +65,7 @@ DGTIC - UNAM
 
  if(navToggle && navMenu){
     navToggle.addEventListener('click', function(){
-        navMenu.classList.remove('open');
+        navMenu.classList.toggle('open');
     });
  }
 

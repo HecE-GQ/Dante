@@ -69,9 +69,19 @@
   padding-bottom: 0.5em;
 }
 
+#modal-creditos .modal-box h2{
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1.3;
+  border-bottom: 3px solid var(--color-accent);
+  padding-bottom: 0.5em;
+  text-align: center;
+}
 
 /* ------------------------------------------
-   LISTA DE REQUISITOS
+   LISTA - TEXTOS 
    ------------------------------------------ */
 
 #modal-requisitos .modal-lista {
@@ -90,6 +100,22 @@
   color: var(--color-text-body);
   font-family: var(--font-main) !important;
 }
+
+#modal-creditos .modal-box p{
+  display: inline-block;
+    font-family: var(--font-main);
+    font-size: var(--font-size-sm);
+} 
+
+#modal-creditos .modal-box .modal-email{
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 3px solid var(--color-primary);
+
+
+}
+  
+
 
 
 /* ------------------------------------------

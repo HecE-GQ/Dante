@@ -65,9 +65,6 @@
 					la DGTIC UNAM pone a tu disposición cursos en línea
 					para tu desarrollo profesional.
 				</p>
-				<a href="<?= BASE_URL ?>index.php?page=cursos" class="banner-btn">
-					Ver cursos disponibles
-				</a>
 			</div>
 		</section>
 
