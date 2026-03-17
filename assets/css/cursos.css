@@ -153,7 +153,43 @@
   background: var(--color-accent);
   flex-shrink: 0;
 }
+.curso-card {
+  overflow: hidden;
+  position: relative;
+}
 
+/* Línea animada abajo — igual que en inicio */
+.curso-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: var(--color-primary);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.curso-card:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Imagen con zoom suave */
+.curso-card-img {
+  overflow: hidden; /* contiene el zoom para que no se salga */
+}
+
+.curso-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.curso-card:hover .curso-card-img img {
+  transform: scale(1.08); /* zoom suave del 8% */
+}
 
 /* =============================================
    RESPONSIVE

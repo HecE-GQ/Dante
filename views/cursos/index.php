@@ -74,7 +74,7 @@ $cursos = $controller->index();
             <a href="<?= BASE_URL ?>index.php?page=curso&id=<?= $curso['id'] ?>" class="curso-card">
                 <!-- PlaceHolder - IMAGENES SE AGREGARAN MANUALMENE DESPUES -->
                  <div class="placeholder-image">
-                    <span class="icon solid fa-laptop-code"></span>
+                    <img src="<?= BASE_URL ?>assets/images/logo_DGTIC_color.png" alt="">
                  </div>
 
                  <div class="curso-card-body">
