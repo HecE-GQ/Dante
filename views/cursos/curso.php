@@ -215,7 +215,7 @@ if (empty($curso)) {
       title="Contacto y solicitudes"
       aria-label="Contacto y solicitudes">
       <span class="btn-req-icono">@</span>
-      <span class="btn-req-texto">Contacto</span>
+      <span class="btn-req-texto">Creditos</span>
     </button>
 
               <div id="modal-creditos" class="modal-overlay" aria-hidden="true">
