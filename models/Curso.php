@@ -22,7 +22,7 @@ class Curso {
     public function getAll(): array{
        try{
          $stmt = $this->db->query(
-            "SELECT id, nombre, modalidad, duracion
+            "SELECT id, nombre, modalidad, duracion, imagen_url
             FROM cursos
             WHERE activo = 1
             ORDER BY nombre ASC"

@@ -72,9 +72,9 @@ $cursos = $controller->index();
         <div class="cursos-grid">
             <?php foreach($cursos as $curso): ?>
             <a href="<?= BASE_URL ?>index.php?page=curso&id=<?= $curso['id'] ?>" class="curso-card">
-                <!-- PlaceHolder - IMAGENES SE AGREGARAN MANUALMENE DESPUES -->
-                 <div class="placeholder-image">
-                    <img src="<?= BASE_URL ?>assets/images/logo_DGTIC_color.png" alt="">
+                <!-- Imagenes dinamicas, se agrego columna en la bd Tabla -> Cursos campo: imagen_url solo se pone el nombre de la imagen y su extension -->
+                 <div class="curso-card-img">
+                    <img src="<?= BASE_URL ?>assets/images/contenido/<?=htmlspecialchars(basename($curso['imagen_url']))?>" alt="imagen_curso"> <!-- Accedemos al campo de la imagen, para cargarlas de forma dinamica-->
                  </div>
 
                  <div class="curso-card-body">
